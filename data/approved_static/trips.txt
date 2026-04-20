@@ -1,0 +1,3 @@
+route_id,service_id,trip_id,trip_headsign,direction_id,shape_id
+29,WKD,TRIP_29_1,Dufferin Station,0,SHAPE_29
+504,WKD,TRIP_504_1,Broadview Station,1,SHAPE_504

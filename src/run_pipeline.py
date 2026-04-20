@@ -1,4 +1,4 @@
-"""Compatibility runner for local execution."""
+"""Runner script for local GTFS QA pipeline execution."""
 
 from ttc_gtfs_qa.cli import main
 

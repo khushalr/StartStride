@@ -1,0 +1,51 @@
+{
+  "vehicles": [
+    {
+      "vehicle_id": "8623",
+      "mode": "bus",
+      "route_id": "29",
+      "route_short_name": "29",
+      "trip_id": "TRIP_29_1",
+      "direction_id": 0,
+      "headsign": "Dufferin Station",
+      "lat": 43.6728,
+      "lon": -79.4365,
+      "bearing": 180,
+      "timestamp": "2026-04-20T12:00:00Z",
+      "freshness_seconds": 15,
+      "next_stop_id": "STOP_100",
+      "next_stop_name": "Dufferin St at Bloor St W",
+      "delay_seconds": 60,
+      "alert_ids": ["alert-29"]
+    },
+    {
+      "vehicle_id": "4401",
+      "mode": "streetcar",
+      "route_id": "504",
+      "route_short_name": "504",
+      "trip_id": "TRIP_504_1",
+      "direction_id": 1,
+      "headsign": "Broadview Station",
+      "lat": 43.6487,
+      "lon": -79.381,
+      "bearing": 90,
+      "timestamp": "2026-04-20T12:00:05Z",
+      "freshness_seconds": 10,
+      "next_stop_id": "STOP_200",
+      "next_stop_name": "King St W at Yonge St",
+      "delay_seconds": 0,
+      "alert_ids": []
+    }
+  ],
+  "alerts": [
+    {
+      "alert_id": "alert-29",
+      "header": "Diversion on 29 Dufferin",
+      "description": "Northbound buses diverting due to construction.",
+      "route_ids": ["29"],
+      "stop_ids": ["STOP_100"],
+      "effect": "DETOUR",
+      "severity_level": "SEVERE"
+    }
+  ]
+}

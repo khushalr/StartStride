@@ -1,156 +1,219 @@
-# TTC GTFS QA Validation Pipeline
+# TTC GTFS QA + Live Transit Map Platform
 
-Python project for validating public transit GTFS static feeds with **reproducible QA outputs**.
+A portfolio-ready transit data engineering project that combines:
 
-This project demonstrates how to turn raw transit schedule data into a structured data-quality process using:
-- **Python + pandas**
-- modular validation rules
-- referential integrity checks
-- anomaly detection checks
-- reproducible CSV reporting
-- automated tests and CI
+1. **Static GTFS data quality validation** (existing Python/pandas rule engine), and
+2. **A full-stack live transit map MVP** for TTC surface vehicles (bus + streetcar).
 
-Transit analytics quality depends on schedule data quality. If GTFS keys or relationships are broken, downstream analysis can be misleading (route-level summaries, trip-level KPIs, stop-level coverage, etc.).
-
-## Why this matters (analytics/business value)
-
-Transit analytics depends on trustworthy GTFS data. Small data errors can create big downstream problems:
-- broken trip matching in ridership analysis,
-- inaccurate stop-level dashboards,
-- schedule-based KPIs that are wrong,
-- failed map visualizations and routing logic.
-
-This pipeline makes data-quality risks visible early by producing clear defect logs and summary metrics that can be shared with analysts, planners, and engineers.
+The result is a realistic architecture: validated schedule data powers a realtime ingestion backend and a map frontend that shows live vehicles, route context, and service alerts.
 
 ---
 
-## 30-second recruiter summary
+## Problem this project solves
 
-- Built a modular GTFS QA pipeline in Python/pandas with **16 validation rules** across primary keys, required fields, referential integrity, sequencing, time logic, and domain/range checks.
-- Implemented reproducible outputs (`summary_report.csv`, `defect_log.csv`, `metrics_report.csv`) with severities and affected record counts.
-- Added unit tests with `pytest` and CI automation using GitHub Actions.
-- Designed rule architecture to be easy to extend for additional agencies or datasets.
+Transit apps are only as reliable as their data pipeline.
 
----
+- If static GTFS keys/relationships are broken, realtime joins degrade.
+- If realtime ingestion is fragile, map freshness and rider trust drop.
 
-## Implemented validation checks
+This project demonstrates an end-to-end approach:
 
-### 1) Primary key checks
-- Duplicate `routes.route_id`
-- Duplicate `trips.trip_id`
-- Duplicate `stops.stop_id`
-- Duplicate composite key `stop_times (trip_id, stop_sequence)`
-
-### 2) Required field checks
-- Missing required values in `routes`
-- Missing required values in `trips`
-- Missing required values in `stop_times`
-
-### 3) Referential integrity checks
-- `trips.route_id -> routes.route_id`
-- `stop_times.trip_id -> trips.trip_id`
-- `stop_times.stop_id -> stops.stop_id`
-
-### 4) Sequence/time logic checks
-- `stop_sequence` strictly increases within each `trip_id`
-- `departure_time >= arrival_time`
-
-### 5) Domain/range and consistency checks
-- Valid `stop_lat` / `stop_lon` ranges
-- Route-trip consistency
-- `service_id` relationship validation with `calendar.txt` / `calendar_dates.txt` (if present)
-- `shape_id` consistency with `shapes.txt` (if present)
+**raw GTFS -> QA gate -> approved static GTFS -> realtime ingestion + normalization -> frontend map + APIs**
 
 ---
 
-## Project structure
+## MVP scope (implemented)
+
+### Surface transit map (bus + streetcar)
+- Full-city map view centered on Toronto.
+- Live vehicle markers with icon differentiation (bus vs streetcar).
+- Route filtering, mode filtering, direction filtering.
+- Vehicle popup details:
+  - route/branch context,
+  - vehicle id,
+  - trip id,
+  - headsign (if available),
+  - feed freshness,
+  - next stop + delay (if available).
+- Route shapes rendered on map.
+- Stop markers shown at higher zoom.
+- Alerts panel sourced from backend `/api/alerts`.
+- Polling refresh loop for live updates.
+- Marker clustering strategy for high marker density.
+
+### Backend + API
+- FastAPI backend with polling ingestion loop.
+- GTFS-RT parsing for:
+  - vehicle positions,
+  - trip updates,
+  - alerts.
+- Normalized server-side vehicle model for frontend consumption.
+- Internal API endpoints:
+  - `GET /api/vehicles`
+  - `GET /api/routes`
+  - `GET /api/stops`
+  - `GET /api/alerts`
+  - `GET /api/health`
+- Mock mode for local development when live feed access is unavailable.
+
+### Static data quality gate (reused validator)
+- Existing 16-rule GTFS QA engine remains intact.
+- Added an approval step script that blocks promotion if high-severity failures exceed threshold.
+- Approved static data is copied to `data/approved_static/` for backend use.
+
+---
+
+## Architecture / data flow
+
+```text
+Raw GTFS files (data/gtfs_static/*.txt)
+          |
+          v
+QA validation engine (src/ttc_gtfs_qa/*)
+  - summary_report.csv
+  - defect_log.csv
+  - metrics_report.csv
+          |
+          v
+Approval gate (scripts/approve_static_data.py)
+  - blocks release on high-severity failures
+  - writes approved files to data/approved_static/
+          |
+          v
+FastAPI backend (backend/app)
+  - loads approved static GTFS
+  - polls GTFS-RT feeds (or mock JSON)
+  - normalizes + joins static/realtime context
+  - caches latest app-ready state
+          |
+          v
+Frontend map app (frontend/)
+  - fetches internal APIs only
+  - renders vehicles, shapes, stops, alerts
+  - route/mode/direction filtering
+```
+
+---
+
+## Repository structure
 
 ```text
 ttc-gtfs-qa-validation/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
+├── backend/
+│   ├── app/
+│   │   ├── adapters/                # GTFS-RT HTTP + mock adapters
+│   │   ├── models/                  # API contracts (Pydantic)
+│   │   ├── services/                # static store, normalization, realtime state
+│   │   ├── config.py
+│   │   └── main.py                  # FastAPI app + API routes
+│   ├── tests/
+│   └── requirements.txt
 ├── data/
-│   └── gtfs_static/                  # input GTFS files (not committed)
-├── examples/
-│   └── sample_reports/                # sample output CSVs for portfolio screenshots
-├── outputs/                          # generated after running pipeline
-├── src/
-│   ├── run_tests.py                  # compatibility runner
-│   └── ttc_gtfs_qa/
-│       ├── __init__.py
-│       ├── cli.py
-│       ├── engine.py
-│       ├── io.py
-│       ├── models.py
-│       ├── reporting.py
-│       └── validators/
-│           ├── base.py
-│           ├── calendar.py
-│           ├── domain.py
-│           ├── foreign_keys.py
-│           ├── keys.py
-│           └── sequencing.py
-├── tests/
-│   ├── test_engine_reporting.py
-│   └── test_validators.py
-├── pytest.ini
-├── requirements.txt
-├── pytest.ini
-└── README.md
+│   ├── approved_static/             # validated static GTFS used by backend
+│   └── mock/                        # offline realtime snapshot for local dev
+├── docs/
+│   ├── architecture.md
+│   └── data_sources.md
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   └── lib/
+│   └── package.json
+├── scripts/
+│   └── approve_static_data.py       # QA gate -> approved static data
+├── src/ttc_gtfs_qa/                 # existing GTFS QA package
+└── tests/                           # existing validator tests
 ```
 
-## Input files
+---
 
-## How to run
+## Quickstart
 
-### 1) Setup
+## 1) Python environment
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2) Add GTFS input files
-Place these files in `data/gtfs_static/`:
-- `routes.txt`
-- `trips.txt`
-- `stops.txt`
-- `stop_times.txt`
+## 2) Validate raw static GTFS + approve for app use
 
-Optional:
-- `calendar.txt`
-- `calendar_dates.txt`
-- `shapes.txt`
+Put raw GTFS schedule files under `data/gtfs_static/` and run:
 
-### 3) Execute pipeline
 ```bash
-python src/run_tests.py
+PYTHONPATH=src python scripts/approve_static_data.py --raw-path data/gtfs_static --approved-path data/approved_static
 ```
 
-### 4) Run tests
+If high-severity failures exceed threshold, the command exits non-zero and approval is blocked.
+
+## 3) Run backend API
+
 ```bash
-pytest -q
+PYTHONPATH=backend uvicorn app.main:app --reload --port 8000
+```
+
+Backend default mode is mock for easy local startup (`TTC_USE_MOCK_DATA=true`).
+
+## 4) Run frontend map
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend expects backend at `http://localhost:8000` by default.
+Override with `VITE_API_BASE`.
+
+---
+
+## API examples
+
+```bash
+curl "http://localhost:8000/api/health"
+curl "http://localhost:8000/api/vehicles?mode=streetcar"
+curl "http://localhost:8000/api/routes?active_only=true"
 ```
 
 ---
 
-## Outputs
+## Environment variables (backend)
 
-Running the pipeline writes:
-- `outputs/summary_report.csv` → one row per validation rule with Pass/Fail and affected records.
-- `outputs/defect_log.csv` → failed checks only, with severity and sample IDs.
-- `outputs/metrics_report.csv` → QA KPIs (total rules, pass rate, total affected records).
+All backend variables use `TTC_` prefix:
 
-Example files are included in `examples/sample_reports/`.
+- `TTC_USE_MOCK_DATA` (`true|false`)
+- `TTC_STATIC_DATA_PATH` (default `data/approved_static`)
+- `TTC_MOCK_PAYLOAD_PATH` (default `data/mock/realtime_snapshot.json`)
+- `TTC_VEHICLE_POSITIONS_URL` (default `https://bustime.ttc.ca/gtfsrt/vehicles`)
+- `TTC_TRIP_UPDATES_URL` (default `https://bustime.ttc.ca/gtfsrt/trips`)
+- `TTC_ALERTS_URL` (default `https://bustime.ttc.ca/gtfsrt/alerts`)
+- `TTC_POLL_INTERVAL_SECONDS` (default `20`)
+- `TTC_REQUEST_TIMEOUT_SECONDS` (default `8`)
+- `TTC_REQUEST_MAX_RETRIES` (default `2`)
 
 ---
 
-## Extending checks
+## Screenshots
 
-To add a new rule:
-1. Create a function in `src/ttc_gtfs_qa/validators/`.
-2. Register it in `build_rules()` inside `src/ttc_gtfs_qa/engine.py`.
-3. Add/extend unit tests under `tests/`.
+Frontend screenshot placeholder (generate after running locally):
 
-This keeps additions simple and beginner-friendly while preserving a professional, modular structure.
+- `docs/assets/live-map-placeholder.png` (not yet committed)
+
+---
+
+## Why this is portfolio-strong
+
+- Demonstrates **data quality engineering + backend systems + frontend mapping** in one cohesive project.
+- Uses a realistic transit-domain architecture with clear separation of concerns.
+- Handles offline development with mock mode while keeping clean live-feed integration points.
+- Keeps scope disciplined: MVP is TTC surface network first; subway expansion is a planned extension.
+
+---
+
+## Future extensions
+
+- Add subway train positions through a separate adapter once an official source is confirmed.
+- Persist short rolling vehicle history for movement trails.
+- Add route-focused deep links (`/route/:routeId`).
+- Add richer alert-to-shape visualization for detours.

@@ -1,0 +1,3 @@
+stop_id,stop_name,stop_lat,stop_lon
+STOP_100,Dufferin St at Bloor St W,43.6659,-79.4344
+STOP_200,King St W at Yonge St,43.6490,-79.3778
