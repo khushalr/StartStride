@@ -117,7 +117,7 @@ def save_real_csv(out: Path, fallback_uoft: bool = False) -> dict:
         "sha256": hashlib.sha256(payload).hexdigest(),
         "source_bytes": len(payload),
     }
-    out.with_suffix(".source.json").write_text(json.dumps(meta, indent=2)+"\\n", encoding="utf-8")
+    out.with_suffix(".source.json").write_text(json.dumps(meta, indent=2)+chr(10), encoding="utf-8")
     return meta
 
 
