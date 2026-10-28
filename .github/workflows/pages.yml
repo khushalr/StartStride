@@ -3,6 +3,14 @@ name: Publish StopStride REAL TTC Analytics
 # Source snapshot must come from actual TTC incident records, verified via SHA256.
 # Publish only dashboard assets explicitly listed below, never demo CSV/JSON files.
 on:
+  push:
+    branches: ["main"]
+    paths:
+      - "dashboard/index.html"
+      - "dashboard/styles.css"
+      - "dashboard/real_app.js"
+      - "dashboard/real_data.json"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
