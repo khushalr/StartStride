@@ -1,0 +1,57 @@
+name: Build verified TTC historical streetcar snapshot
+
+on:
+  push:
+    branches: ["feature/real-ttc-streetcar-data"]
+    paths:
+      - "src/real_data/**"
+      - "analytics/build_real_streetcar.py"
+      - ".github/workflows/real-streetcar-data.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-real-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r requirements.txt
+      - name: Download ORIGINAL City of Toronto TTC records (archived UofT mirror only if unavailable)
+        run: |
+          python src/real_data/download_streetcar.py --out outputs/real/source.csv --fallback-uoft
+      - name: Build verified REAL historical analysis
+        run: |
+          python analytics/build_real_streetcar.py \
+            --csv outputs/real/source.csv \
+            --source-meta outputs/real/source.source.json \
+            --out dashboard/real_data.json
+          python - <<'PY'
+          import json
+          x=json.load(open("dashboard/real_data.json"))
+          assert x["meta"]["origin"] == "REAL"
+          assert x["summary"]["recorded_incidents"] >= 100
+          print("REAL_TTC_RESULTS",json.dumps({"meta":x["meta"],"summary":x["summary"]}))
+          PY
+      - name: Upload real analysis, source manifest and original data for provenance
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-ttc-streetcar-incident-analysis
+          path: |
+            dashboard/real_data.json
+            outputs/real/source.source.json
+            outputs/real/source.csv
+          retention-days: 7
+      - name: Commit REAL aggregate snapshot to branch
+        if: github.ref == 'refs/heads/feature/real-ttc-streetcar-data'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dashboard/real_data.json
+          git commit -m "data: verified real TTC streetcar incident aggregate snapshot" || exit 0
+          git push
