@@ -189,7 +189,18 @@ def native_xml() -> bytes:
         add(parent, "zone", id=index + 2, name=title,
             x=800 if index % 2 == 0 else 50400,
             y=1000 if index < 2 else 50600, w=48800, h=48400)
-    add(board, "devicelayouts")
+    layouts = add(board, "devicelayouts")
+    phone = add(layouts, "devicelayout", **{"auto-generated": "true", "name": "Phone"})
+    add(phone, "size", maxheight=1000, minheight=1000, **{"sizing-mode": "vscroll"})
+    phone_zones = add(phone, "zones")
+    phone_root = add(phone_zones, "zone", id=10, x=0, y=0, w=100000,
+                     h=100000, **{"type-v2": "layout-basic"})
+    phone_flow = add(phone_root, "zone", id=11, x=500, y=500, w=99000,
+                     h=99000, param="vert", **{"type-v2": "layout-flow"})
+    for index, (title, *_) in enumerate(VIEWS):
+        add(phone_flow, "zone", id=index + 12, name=title,
+            x=0, y=index * 25000, w=100000, h=24000,
+            **{"fixed-size": "240", "is-fixed": "true"})
 
     windows = add(root, "windows", **{"source-height": "30"})
     for title, *_ in VIEWS:
