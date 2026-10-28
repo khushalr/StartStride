@@ -30,7 +30,10 @@ jobs:
           python analytics/build_real_streetcar.py \
             --csv outputs/real/source.csv \
             --source-meta outputs/real/source.source.json \
-            --out dashboard/real_data.json
+            --out dashboard/real_data.json \
+            --sqlite-db outputs/real/streetcar.sqlite
+          python analytics/export_real_tables.py \
+            --json dashboard/real_data.json --out dashboard/bi
           python - <<'PY'
           import json
           x=json.load(open("dashboard/real_data.json"))
@@ -52,6 +55,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dashboard/real_data.json
-          git commit -m "data: verified real TTC streetcar incident aggregate snapshot" || exit 0
-          git push
+          git add dashboard/real_data.json dashboard/bi/
+          if git diff --cached --quiet; then echo "No changes to real aggregate"; exit 0; fi
+          git commit -m "data: verified real TTC streetcar incident aggregate snapshot"
+          git fetch origin feature/real-ttc-streetcar-data
+          git rebase origin/feature/real-ttc-streetcar-data
+          git push origin HEAD:feature/real-ttc-streetcar-data
