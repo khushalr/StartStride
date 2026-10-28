@@ -1,0 +1,16 @@
+{
+  "origin": "REAL",
+  "mode": "streetcar",
+  "data_kind": "Historical TTC logged incidents; NOT real-time arrivals",
+  "source": "https://pages.scinet.utoronto.ca/~afedosee/ttc-streetcar-delay-data-2014-2025.zip",
+  "source_page": "https://open.toronto.ca/dataset/ttc-streetcar-delay-data/",
+  "retrieval": "University of Toronto archived copy of TTC records (2025 only)",
+  "source_sha256": "eb73f629ea3bdbca0dbdb17f1215b930dadb9ee78885b6a4c871c9fc3b1d38c3",
+  "generated_utc": "2026-10-28T02:09:42+00:00",
+  "first_record": "2025-01-01",
+  "last_record": "2025-12-10",
+  "rows_in_source": 10903,
+  "rows_valid_2025_onward": 10744,
+  "rows_dropped_invalid_or_before_2025": 159,
+  "note": "Counts are logged TTC incidents, NOT delays per vehicle, reliability per trip or riders delayed."
+}

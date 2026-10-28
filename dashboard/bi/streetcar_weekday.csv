@@ -1,0 +1,8 @@
+day_of_week,recorded_incidents,positive_delay_incidents,recorded_delay_minutes
+Friday,1566,1251,29574.0
+Monday,1540,1228,30492.0
+Saturday,1626,1284,32730.0
+Sunday,1556,1214,30732.0
+Thursday,1575,1212,28188.0
+Tuesday,1419,1089,27035.0
+Wednesday,1462,1099,24914.0

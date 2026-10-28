@@ -1,0 +1,3836 @@
+{
+  "meta": {
+    "origin": "REAL",
+    "mode": "streetcar",
+    "data_kind": "Historical TTC logged incidents; NOT real-time arrivals",
+    "source": "https://pages.scinet.utoronto.ca/~afedosee/ttc-streetcar-delay-data-2014-2025.zip",
+    "source_page": "https://open.toronto.ca/dataset/ttc-streetcar-delay-data/",
+    "retrieval": "University of Toronto archived copy of TTC records (2025 only)",
+    "source_sha256": "eb73f629ea3bdbca0dbdb17f1215b930dadb9ee78885b6a4c871c9fc3b1d38c3",
+    "generated_utc": "2026-10-28T02:09:42+00:00",
+    "first_record": "2025-01-01",
+    "last_record": "2025-12-10",
+    "rows_in_source": 10903,
+    "rows_valid_2025_onward": 10744,
+    "rows_dropped_invalid_or_before_2025": 159,
+    "note": "Counts are logged TTC incidents, NOT delays per vehicle, reliability per trip or riders delayed."
+  },
+  "summary": {
+    "recorded_incidents": 10744,
+    "positive_delay_incidents": 8377,
+    "zero_delay_incidents": 2367,
+    "sum_recorded_delay_minutes": 203665.0,
+    "median_positive_delay_minutes": 10.0,
+    "route_count": 86
+  },
+  "routes": [
+    {
+      "route": "501 QUEEN",
+      "recorded_incidents": 1846,
+      "positive_delay_incidents": 1519,
+      "total_recorded_delay_minutes": 36756.0,
+      "avg_recorded_delay_minutes": 19.91
+    },
+    {
+      "route": "504 KING",
+      "recorded_incidents": 1756,
+      "positive_delay_incidents": 1391,
+      "total_recorded_delay_minutes": 37974.0,
+      "avg_recorded_delay_minutes": 21.63
+    },
+    {
+      "route": "505 DUNDAS",
+      "recorded_incidents": 1587,
+      "positive_delay_incidents": 1207,
+      "total_recorded_delay_minutes": 29315.0,
+      "avg_recorded_delay_minutes": 18.47
+    },
+    {
+      "route": "506 CARLTON",
+      "recorded_incidents": 1452,
+      "positive_delay_incidents": 1151,
+      "total_recorded_delay_minutes": 28309.0,
+      "avg_recorded_delay_minutes": 19.5
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "recorded_incidents": 952,
+      "positive_delay_incidents": 768,
+      "total_recorded_delay_minutes": 13043.0,
+      "avg_recorded_delay_minutes": 13.7
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "recorded_incidents": 915,
+      "positive_delay_incidents": 729,
+      "total_recorded_delay_minutes": 19256.0,
+      "avg_recorded_delay_minutes": 21.04
+    },
+    {
+      "route": "510 SPADINA",
+      "recorded_incidents": 658,
+      "positive_delay_incidents": 454,
+      "total_recorded_delay_minutes": 7770.0,
+      "avg_recorded_delay_minutes": 11.81
+    },
+    {
+      "route": "511 BATHURST",
+      "recorded_incidents": 391,
+      "positive_delay_incidents": 303,
+      "total_recorded_delay_minutes": 6468.0,
+      "avg_recorded_delay_minutes": 16.54
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "recorded_incidents": 361,
+      "positive_delay_incidents": 308,
+      "total_recorded_delay_minutes": 6654.0,
+      "avg_recorded_delay_minutes": 18.43
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "recorded_incidents": 249,
+      "positive_delay_incidents": 183,
+      "total_recorded_delay_minutes": 4061.0,
+      "avg_recorded_delay_minutes": 16.31
+    },
+    {
+      "route": "301 QUEEN NIGHT",
+      "recorded_incidents": 101,
+      "positive_delay_incidents": 69,
+      "total_recorded_delay_minutes": 2235.0,
+      "avg_recorded_delay_minutes": 22.13
+    },
+    {
+      "route": "306 CARLTON NIGHT",
+      "recorded_incidents": 57,
+      "positive_delay_incidents": 42,
+      "total_recorded_delay_minutes": 1195.0,
+      "avg_recorded_delay_minutes": 20.96
+    },
+    {
+      "route": "508 LAKESHORE",
+      "recorded_incidents": 54,
+      "positive_delay_incidents": 45,
+      "total_recorded_delay_minutes": 2028.0,
+      "avg_recorded_delay_minutes": 37.56
+    },
+    {
+      "route": "304 KING NIGHT",
+      "recorded_incidents": 51,
+      "positive_delay_incidents": 43,
+      "total_recorded_delay_minutes": 1775.0,
+      "avg_recorded_delay_minutes": 34.8
+    },
+    {
+      "route": "305 DUNDAS NIGHT",
+      "recorded_incidents": 42,
+      "positive_delay_incidents": 27,
+      "total_recorded_delay_minutes": 770.0,
+      "avg_recorded_delay_minutes": 18.33
+    },
+    {
+      "route": "500",
+      "recorded_incidents": 38,
+      "positive_delay_incidents": 3,
+      "total_recorded_delay_minutes": 696.0,
+      "avg_recorded_delay_minutes": 18.32
+    },
+    {
+      "route": "303 KINGSTON ROAD NIGH",
+      "recorded_incidents": 27,
+      "positive_delay_incidents": 21,
+      "total_recorded_delay_minutes": 1144.0,
+      "avg_recorded_delay_minutes": 42.37
+    },
+    {
+      "route": "305 DUNDAS",
+      "recorded_incidents": 27,
+      "positive_delay_incidents": 21,
+      "total_recorded_delay_minutes": 679.0,
+      "avg_recorded_delay_minutes": 25.15
+    },
+    {
+      "route": "310 SPADINA NIGHT",
+      "recorded_incidents": 20,
+      "positive_delay_incidents": 17,
+      "total_recorded_delay_minutes": 400.0,
+      "avg_recorded_delay_minutes": 20.0
+    },
+    {
+      "route": "705",
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 6,
+      "total_recorded_delay_minutes": 609.0,
+      "avg_recorded_delay_minutes": 35.82
+    },
+    {
+      "route": "705 RAD",
+      "recorded_incidents": 11,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 10.0,
+      "avg_recorded_delay_minutes": 0.91
+    },
+    {
+      "route": "312 ST. CLAIR NIGHT",
+      "recorded_incidents": 10,
+      "positive_delay_incidents": 9,
+      "total_recorded_delay_minutes": 378.0,
+      "avg_recorded_delay_minutes": 37.8
+    },
+    {
+      "route": "303 KINGSTON ROAD",
+      "recorded_incidents": 9,
+      "positive_delay_incidents": 8,
+      "total_recorded_delay_minutes": 170.0,
+      "avg_recorded_delay_minutes": 18.89
+    },
+    {
+      "route": "RAD",
+      "recorded_incidents": 9,
+      "positive_delay_incidents": 3,
+      "total_recorded_delay_minutes": 92.0,
+      "avg_recorded_delay_minutes": 10.22
+    },
+    {
+      "route": "999",
+      "recorded_incidents": 8,
+      "positive_delay_incidents": 3,
+      "total_recorded_delay_minutes": 591.0,
+      "avg_recorded_delay_minutes": 73.88
+    },
+    {
+      "route": "600",
+      "recorded_incidents": 7,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 15.0,
+      "avg_recorded_delay_minutes": 2.14
+    },
+    {
+      "route": "555",
+      "recorded_incidents": 5,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 32.0,
+      "avg_recorded_delay_minutes": 6.4
+    },
+    {
+      "route": "303 KINGSTON RD",
+      "recorded_incidents": 5,
+      "positive_delay_incidents": 4,
+      "total_recorded_delay_minutes": 137.0,
+      "avg_recorded_delay_minutes": 27.4
+    },
+    {
+      "route": "305",
+      "recorded_incidents": 4,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 16.0,
+      "avg_recorded_delay_minutes": 4.0
+    },
+    {
+      "route": "600 RAD",
+      "recorded_incidents": 4,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "510",
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 21.0,
+      "avg_recorded_delay_minutes": 7.0
+    },
+    {
+      "route": "301 QUEEN",
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 91.0,
+      "avg_recorded_delay_minutes": 30.33
+    },
+    {
+      "route": "OTC",
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 127.0,
+      "avg_recorded_delay_minutes": 42.33
+    },
+    {
+      "route": "504",
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 81.0,
+      "avg_recorded_delay_minutes": 27.0
+    },
+    {
+      "route": "306 CARLTON",
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 29.0,
+      "avg_recorded_delay_minutes": 14.5
+    },
+    {
+      "route": "504B KING",
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 38.0,
+      "avg_recorded_delay_minutes": 19.0
+    },
+    {
+      "route": "504A KING",
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 22.0,
+      "avg_recorded_delay_minutes": 11.0
+    },
+    {
+      "route": "CNE EXTRA",
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 6.0,
+      "avg_recorded_delay_minutes": 3.0
+    },
+    {
+      "route": "512 ST CLAIR",
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 97.0,
+      "avg_recorded_delay_minutes": 48.5
+    },
+    {
+      "route": "512",
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 18.0,
+      "avg_recorded_delay_minutes": 9.0
+    },
+    {
+      "route": "505",
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "total_recorded_delay_minutes": 29.0,
+      "avg_recorded_delay_minutes": 14.5
+    },
+    {
+      "route": "305 NIGHT CAR",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 5.0,
+      "avg_recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "304 KING",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 47.0,
+      "avg_recorded_delay_minutes": 47.0
+    },
+    {
+      "route": "129 MCCOWAN NORTH",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 10.0,
+      "avg_recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "303",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 19.0,
+      "avg_recorded_delay_minutes": 19.0
+    },
+    {
+      "route": "303 KINGSTOM",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 31.0,
+      "avg_recorded_delay_minutes": 31.0
+    },
+    {
+      "route": "500 (512 ST CLAIR)",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 31.0,
+      "avg_recorded_delay_minutes": 31.0
+    },
+    {
+      "route": "4404",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "310 SPADINA",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 20.0,
+      "avg_recorded_delay_minutes": 20.0
+    },
+    {
+      "route": "504D/C KING",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "504 KING (PRIVATE)",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "501 LAKESHORE",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "5003",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 12.0,
+      "avg_recorded_delay_minutes": 12.0
+    },
+    {
+      "route": "504 KING- 600",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 9.0,
+      "avg_recorded_delay_minutes": 9.0
+    },
+    {
+      "route": "509 HARBOUR FRONT",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 22.0,
+      "avg_recorded_delay_minutes": 22.0
+    },
+    {
+      "route": "505 RAD STREETCAR",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "505 DUNDAS (RAD)",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "507 LONG BRANCH (OTC)",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "506",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 26.0,
+      "avg_recorded_delay_minutes": 26.0
+    },
+    {
+      "route": "504 KING RAD CAR",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 54.0,
+      "avg_recorded_delay_minutes": 54.0
+    },
+    {
+      "route": "504D KING",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "503",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "504 AKING",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 24.0,
+      "avg_recorded_delay_minutes": 24.0
+    },
+    {
+      "route": "600 RAD 504",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "514 CHERRY",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 5.0,
+      "avg_recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "600 RAD ON 512 ST CLAI",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 5.0,
+      "avg_recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "600/506 CARLTON",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 5.0,
+      "avg_recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "600 (OPERATING AS 503",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "555 (505 DUNDAS)",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 169.0,
+      "avg_recorded_delay_minutes": 169.0
+    },
+    {
+      "route": "512`",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "total_recorded_delay_minutes": 34.0,
+      "avg_recorded_delay_minutes": 34.0
+    },
+    {
+      "route": "A410",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "899",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600 RAD VEHICLE",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "CARHOUSE",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "EXTRA",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "CHO",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "FLEET VEHICLE - A",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "OTC CAR",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "RAD - 506 CARLTON",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "S",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "STORM CAR - 505",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "TEST CAR",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "TRACK 11",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "TRACK 2 - SWITCH 130",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "TRAINING VEHICLE",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "YU",
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "total_recorded_delay_minutes": 0.0,
+      "avg_recorded_delay_minutes": 0.0
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2025-01",
+      "recorded_incidents": 861,
+      "positive_delay_incidents": 657,
+      "recorded_delay_minutes": 13955.0
+    },
+    {
+      "month": "2025-02",
+      "recorded_incidents": 1629,
+      "positive_delay_incidents": 1238,
+      "recorded_delay_minutes": 39348.0
+    },
+    {
+      "month": "2025-03",
+      "recorded_incidents": 946,
+      "positive_delay_incidents": 763,
+      "recorded_delay_minutes": 20013.0
+    },
+    {
+      "month": "2025-04",
+      "recorded_incidents": 957,
+      "positive_delay_incidents": 731,
+      "recorded_delay_minutes": 15614.0
+    },
+    {
+      "month": "2025-05",
+      "recorded_incidents": 1021,
+      "positive_delay_incidents": 765,
+      "recorded_delay_minutes": 17798.0
+    },
+    {
+      "month": "2025-06",
+      "recorded_incidents": 993,
+      "positive_delay_incidents": 766,
+      "recorded_delay_minutes": 18045.0
+    },
+    {
+      "month": "2025-07",
+      "recorded_incidents": 977,
+      "positive_delay_incidents": 782,
+      "recorded_delay_minutes": 17848.0
+    },
+    {
+      "month": "2025-08",
+      "recorded_incidents": 957,
+      "positive_delay_incidents": 750,
+      "recorded_delay_minutes": 16640.0
+    },
+    {
+      "month": "2025-09",
+      "recorded_incidents": 776,
+      "positive_delay_incidents": 615,
+      "recorded_delay_minutes": 11841.0
+    },
+    {
+      "month": "2025-10",
+      "recorded_incidents": 939,
+      "positive_delay_incidents": 744,
+      "recorded_delay_minutes": 18240.0
+    },
+    {
+      "month": "2025-11",
+      "recorded_incidents": 339,
+      "positive_delay_incidents": 283,
+      "recorded_delay_minutes": 6995.0
+    },
+    {
+      "month": "2025-12",
+      "recorded_incidents": 349,
+      "positive_delay_incidents": 283,
+      "recorded_delay_minutes": 7328.0
+    }
+  ],
+  "hourly": [
+    {
+      "hour": 0,
+      "recorded_incidents": 340,
+      "positive_delay_incidents": 292,
+      "recorded_delay_minutes": 6640.0
+    },
+    {
+      "hour": 1,
+      "recorded_incidents": 399,
+      "positive_delay_incidents": 284,
+      "recorded_delay_minutes": 6835.0
+    },
+    {
+      "hour": 2,
+      "recorded_incidents": 490,
+      "positive_delay_incidents": 328,
+      "recorded_delay_minutes": 10225.0
+    },
+    {
+      "hour": 3,
+      "recorded_incidents": 381,
+      "positive_delay_incidents": 285,
+      "recorded_delay_minutes": 8532.0
+    },
+    {
+      "hour": 4,
+      "recorded_incidents": 444,
+      "positive_delay_incidents": 339,
+      "recorded_delay_minutes": 8880.0
+    },
+    {
+      "hour": 5,
+      "recorded_incidents": 495,
+      "positive_delay_incidents": 290,
+      "recorded_delay_minutes": 7416.0
+    },
+    {
+      "hour": 6,
+      "recorded_incidents": 442,
+      "positive_delay_incidents": 273,
+      "recorded_delay_minutes": 7689.0
+    },
+    {
+      "hour": 7,
+      "recorded_incidents": 322,
+      "positive_delay_incidents": 241,
+      "recorded_delay_minutes": 4407.0
+    },
+    {
+      "hour": 8,
+      "recorded_incidents": 369,
+      "positive_delay_incidents": 293,
+      "recorded_delay_minutes": 5479.0
+    },
+    {
+      "hour": 9,
+      "recorded_incidents": 401,
+      "positive_delay_incidents": 325,
+      "recorded_delay_minutes": 6497.0
+    },
+    {
+      "hour": 10,
+      "recorded_incidents": 399,
+      "positive_delay_incidents": 340,
+      "recorded_delay_minutes": 8522.0
+    },
+    {
+      "hour": 11,
+      "recorded_incidents": 365,
+      "positive_delay_incidents": 309,
+      "recorded_delay_minutes": 7521.0
+    },
+    {
+      "hour": 12,
+      "recorded_incidents": 409,
+      "positive_delay_incidents": 343,
+      "recorded_delay_minutes": 6122.0
+    },
+    {
+      "hour": 13,
+      "recorded_incidents": 488,
+      "positive_delay_incidents": 376,
+      "recorded_delay_minutes": 8289.0
+    },
+    {
+      "hour": 14,
+      "recorded_incidents": 619,
+      "positive_delay_incidents": 500,
+      "recorded_delay_minutes": 12941.0
+    },
+    {
+      "hour": 15,
+      "recorded_incidents": 558,
+      "positive_delay_incidents": 435,
+      "recorded_delay_minutes": 11630.0
+    },
+    {
+      "hour": 16,
+      "recorded_incidents": 558,
+      "positive_delay_incidents": 442,
+      "recorded_delay_minutes": 10834.0
+    },
+    {
+      "hour": 17,
+      "recorded_incidents": 442,
+      "positive_delay_incidents": 360,
+      "recorded_delay_minutes": 8470.0
+    },
+    {
+      "hour": 18,
+      "recorded_incidents": 485,
+      "positive_delay_incidents": 395,
+      "recorded_delay_minutes": 10239.0
+    },
+    {
+      "hour": 19,
+      "recorded_incidents": 468,
+      "positive_delay_incidents": 397,
+      "recorded_delay_minutes": 9635.0
+    },
+    {
+      "hour": 20,
+      "recorded_incidents": 492,
+      "positive_delay_incidents": 402,
+      "recorded_delay_minutes": 8807.0
+    },
+    {
+      "hour": 21,
+      "recorded_incidents": 485,
+      "positive_delay_incidents": 391,
+      "recorded_delay_minutes": 10533.0
+    },
+    {
+      "hour": 22,
+      "recorded_incidents": 459,
+      "positive_delay_incidents": 371,
+      "recorded_delay_minutes": 9727.0
+    },
+    {
+      "hour": 23,
+      "recorded_incidents": 434,
+      "positive_delay_incidents": 366,
+      "recorded_delay_minutes": 7795.0
+    }
+  ],
+  "route_by_hour": [
+    {
+      "route": "129 MCCOWAN NORTH",
+      "hour": 16,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "301 QUEEN",
+      "hour": 2,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 77.0
+    },
+    {
+      "route": "301 QUEEN",
+      "hour": 3,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 14.0
+    },
+    {
+      "route": "301 QUEEN NIGHT",
+      "hour": 0,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "301 QUEEN NIGHT",
+      "hour": 1,
+      "recorded_incidents": 10,
+      "positive_delay_incidents": 7,
+      "recorded_delay_minutes": 182.0
+    },
+    {
+      "route": "301 QUEEN NIGHT",
+      "hour": 2,
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 886.0
+    },
+    {
+      "route": "301 QUEEN NIGHT",
+      "hour": 3,
+      "recorded_incidents": 21,
+      "positive_delay_incidents": 18,
+      "recorded_delay_minutes": 474.0
+    },
+    {
+      "route": "301 QUEEN NIGHT",
+      "hour": 4,
+      "recorded_incidents": 34,
+      "positive_delay_incidents": 26,
+      "recorded_delay_minutes": 673.0
+    },
+    {
+      "route": "301 QUEEN NIGHT",
+      "hour": 5,
+      "recorded_incidents": 12,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "301 QUEEN NIGHT",
+      "hour": 6,
+      "recorded_incidents": 6,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "303",
+      "hour": 5,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 19.0
+    },
+    {
+      "route": "303 KINGSTOM",
+      "hour": 4,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 31.0
+    },
+    {
+      "route": "303 KINGSTON RD",
+      "hour": 3,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 59.0
+    },
+    {
+      "route": "303 KINGSTON RD",
+      "hour": 4,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 78.0
+    },
+    {
+      "route": "303 KINGSTON RD",
+      "hour": 5,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "303 KINGSTON ROAD",
+      "hour": 1,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 26.0
+    },
+    {
+      "route": "303 KINGSTON ROAD",
+      "hour": 2,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 50.0
+    },
+    {
+      "route": "303 KINGSTON ROAD",
+      "hour": 3,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 34.0
+    },
+    {
+      "route": "303 KINGSTON ROAD",
+      "hour": 4,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 3,
+      "recorded_delay_minutes": 60.0
+    },
+    {
+      "route": "303 KINGSTON ROAD NIGH",
+      "hour": 1,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 3,
+      "recorded_delay_minutes": 252.0
+    },
+    {
+      "route": "303 KINGSTON ROAD NIGH",
+      "hour": 2,
+      "recorded_incidents": 13,
+      "positive_delay_incidents": 11,
+      "recorded_delay_minutes": 629.0
+    },
+    {
+      "route": "303 KINGSTON ROAD NIGH",
+      "hour": 3,
+      "recorded_incidents": 5,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 219.0
+    },
+    {
+      "route": "303 KINGSTON ROAD NIGH",
+      "hour": 4,
+      "recorded_incidents": 5,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 44.0
+    },
+    {
+      "route": "303 KINGSTON ROAD NIGH",
+      "hour": 6,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "304 KING",
+      "hour": 3,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 47.0
+    },
+    {
+      "route": "304 KING NIGHT",
+      "hour": 1,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "304 KING NIGHT",
+      "hour": 2,
+      "recorded_incidents": 14,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 911.0
+    },
+    {
+      "route": "304 KING NIGHT",
+      "hour": 3,
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 14,
+      "recorded_delay_minutes": 356.0
+    },
+    {
+      "route": "304 KING NIGHT",
+      "hour": 4,
+      "recorded_incidents": 10,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 242.0
+    },
+    {
+      "route": "304 KING NIGHT",
+      "hour": 5,
+      "recorded_incidents": 6,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 219.0
+    },
+    {
+      "route": "304 KING NIGHT",
+      "hour": 6,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 47.0
+    },
+    {
+      "route": "305",
+      "hour": 2,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "305",
+      "hour": 4,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 16.0
+    },
+    {
+      "route": "305 DUNDAS",
+      "hour": 1,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 3,
+      "recorded_delay_minutes": 89.0
+    },
+    {
+      "route": "305 DUNDAS",
+      "hour": 2,
+      "recorded_incidents": 7,
+      "positive_delay_incidents": 6,
+      "recorded_delay_minutes": 227.0
+    },
+    {
+      "route": "305 DUNDAS",
+      "hour": 3,
+      "recorded_incidents": 9,
+      "positive_delay_incidents": 8,
+      "recorded_delay_minutes": 195.0
+    },
+    {
+      "route": "305 DUNDAS",
+      "hour": 4,
+      "recorded_incidents": 4,
+      "positive_delay_incidents": 3,
+      "recorded_delay_minutes": 155.0
+    },
+    {
+      "route": "305 DUNDAS",
+      "hour": 5,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 13.0
+    },
+    {
+      "route": "305 DUNDAS",
+      "hour": 6,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "305 DUNDAS NIGHT",
+      "hour": 2,
+      "recorded_incidents": 9,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 80.0
+    },
+    {
+      "route": "305 DUNDAS NIGHT",
+      "hour": 3,
+      "recorded_incidents": 15,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 265.0
+    },
+    {
+      "route": "305 DUNDAS NIGHT",
+      "hour": 4,
+      "recorded_incidents": 8,
+      "positive_delay_incidents": 4,
+      "recorded_delay_minutes": 65.0
+    },
+    {
+      "route": "305 DUNDAS NIGHT",
+      "hour": 5,
+      "recorded_incidents": 8,
+      "positive_delay_incidents": 4,
+      "recorded_delay_minutes": 335.0
+    },
+    {
+      "route": "305 DUNDAS NIGHT",
+      "hour": 6,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 25.0
+    },
+    {
+      "route": "305 NIGHT CAR",
+      "hour": 5,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "306 CARLTON",
+      "hour": 2,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 14.0
+    },
+    {
+      "route": "306 CARLTON",
+      "hour": 3,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 15.0
+    },
+    {
+      "route": "306 CARLTON NIGHT",
+      "hour": 1,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 15.0
+    },
+    {
+      "route": "306 CARLTON NIGHT",
+      "hour": 2,
+      "recorded_incidents": 20,
+      "positive_delay_incidents": 13,
+      "recorded_delay_minutes": 387.0
+    },
+    {
+      "route": "306 CARLTON NIGHT",
+      "hour": 3,
+      "recorded_incidents": 15,
+      "positive_delay_incidents": 14,
+      "recorded_delay_minutes": 389.0
+    },
+    {
+      "route": "306 CARLTON NIGHT",
+      "hour": 4,
+      "recorded_incidents": 11,
+      "positive_delay_incidents": 11,
+      "recorded_delay_minutes": 349.0
+    },
+    {
+      "route": "306 CARLTON NIGHT",
+      "hour": 5,
+      "recorded_incidents": 6,
+      "positive_delay_incidents": 3,
+      "recorded_delay_minutes": 55.0
+    },
+    {
+      "route": "306 CARLTON NIGHT",
+      "hour": 6,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "310 SPADINA",
+      "hour": 5,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 20.0
+    },
+    {
+      "route": "310 SPADINA NIGHT",
+      "hour": 1,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "310 SPADINA NIGHT",
+      "hour": 2,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 27.0
+    },
+    {
+      "route": "310 SPADINA NIGHT",
+      "hour": 3,
+      "recorded_incidents": 4,
+      "positive_delay_incidents": 4,
+      "recorded_delay_minutes": 111.0
+    },
+    {
+      "route": "310 SPADINA NIGHT",
+      "hour": 4,
+      "recorded_incidents": 4,
+      "positive_delay_incidents": 4,
+      "recorded_delay_minutes": 137.0
+    },
+    {
+      "route": "310 SPADINA NIGHT",
+      "hour": 5,
+      "recorded_incidents": 7,
+      "positive_delay_incidents": 6,
+      "recorded_delay_minutes": 105.0
+    },
+    {
+      "route": "310 SPADINA NIGHT",
+      "hour": 6,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 20.0
+    },
+    {
+      "route": "312 ST. CLAIR NIGHT",
+      "hour": 2,
+      "recorded_incidents": 4,
+      "positive_delay_incidents": 4,
+      "recorded_delay_minutes": 86.0
+    },
+    {
+      "route": "312 ST. CLAIR NIGHT",
+      "hour": 3,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 3,
+      "recorded_delay_minutes": 262.0
+    },
+    {
+      "route": "312 ST. CLAIR NIGHT",
+      "hour": 4,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 20.0
+    },
+    {
+      "route": "312 ST. CLAIR NIGHT",
+      "hour": 6,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "4404",
+      "hour": 17,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "500",
+      "hour": 2,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "500",
+      "hour": 6,
+      "recorded_incidents": 21,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "500",
+      "hour": 7,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "500",
+      "hour": 8,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 106.0
+    },
+    {
+      "route": "500",
+      "hour": 9,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "500",
+      "hour": 13,
+      "recorded_incidents": 7,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "500",
+      "hour": 15,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 585.0
+    },
+    {
+      "route": "500",
+      "hour": 16,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "500",
+      "hour": 21,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "500 (512 ST CLAIR)",
+      "hour": 17,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 31.0
+    },
+    {
+      "route": "5003",
+      "hour": 21,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 12.0
+    },
+    {
+      "route": "501 LAKESHORE",
+      "hour": 21,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 0,
+      "recorded_incidents": 56,
+      "positive_delay_incidents": 48,
+      "recorded_delay_minutes": 1411.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 1,
+      "recorded_incidents": 79,
+      "positive_delay_incidents": 62,
+      "recorded_delay_minutes": 1514.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 2,
+      "recorded_incidents": 71,
+      "positive_delay_incidents": 54,
+      "recorded_delay_minutes": 1748.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 3,
+      "recorded_incidents": 72,
+      "positive_delay_incidents": 47,
+      "recorded_delay_minutes": 1687.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 4,
+      "recorded_incidents": 64,
+      "positive_delay_incidents": 54,
+      "recorded_delay_minutes": 1560.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 5,
+      "recorded_incidents": 99,
+      "positive_delay_incidents": 52,
+      "recorded_delay_minutes": 1069.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 6,
+      "recorded_incidents": 75,
+      "positive_delay_incidents": 49,
+      "recorded_delay_minutes": 1120.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 7,
+      "recorded_incidents": 50,
+      "positive_delay_incidents": 44,
+      "recorded_delay_minutes": 1000.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 8,
+      "recorded_incidents": 57,
+      "positive_delay_incidents": 51,
+      "recorded_delay_minutes": 1058.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 9,
+      "recorded_incidents": 71,
+      "positive_delay_incidents": 60,
+      "recorded_delay_minutes": 1145.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 10,
+      "recorded_incidents": 64,
+      "positive_delay_incidents": 57,
+      "recorded_delay_minutes": 1300.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 11,
+      "recorded_incidents": 63,
+      "positive_delay_incidents": 56,
+      "recorded_delay_minutes": 1388.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 12,
+      "recorded_incidents": 76,
+      "positive_delay_incidents": 70,
+      "recorded_delay_minutes": 1185.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 13,
+      "recorded_incidents": 86,
+      "positive_delay_incidents": 73,
+      "recorded_delay_minutes": 1140.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 14,
+      "recorded_incidents": 103,
+      "positive_delay_incidents": 92,
+      "recorded_delay_minutes": 3311.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 15,
+      "recorded_incidents": 95,
+      "positive_delay_incidents": 83,
+      "recorded_delay_minutes": 1854.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 16,
+      "recorded_incidents": 99,
+      "positive_delay_incidents": 88,
+      "recorded_delay_minutes": 2152.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 17,
+      "recorded_incidents": 69,
+      "positive_delay_incidents": 56,
+      "recorded_delay_minutes": 1090.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 18,
+      "recorded_incidents": 66,
+      "positive_delay_incidents": 57,
+      "recorded_delay_minutes": 2057.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 19,
+      "recorded_incidents": 83,
+      "positive_delay_incidents": 75,
+      "recorded_delay_minutes": 1384.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 20,
+      "recorded_incidents": 80,
+      "positive_delay_incidents": 68,
+      "recorded_delay_minutes": 1593.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 21,
+      "recorded_incidents": 89,
+      "positive_delay_incidents": 76,
+      "recorded_delay_minutes": 1955.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 22,
+      "recorded_incidents": 85,
+      "positive_delay_incidents": 67,
+      "recorded_delay_minutes": 1352.0
+    },
+    {
+      "route": "501 QUEEN",
+      "hour": 23,
+      "recorded_incidents": 94,
+      "positive_delay_incidents": 80,
+      "recorded_delay_minutes": 1683.0
+    },
+    {
+      "route": "503",
+      "hour": 21,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 0,
+      "recorded_incidents": 34,
+      "positive_delay_incidents": 30,
+      "recorded_delay_minutes": 536.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 1,
+      "recorded_incidents": 41,
+      "positive_delay_incidents": 31,
+      "recorded_delay_minutes": 1171.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 2,
+      "recorded_incidents": 24,
+      "positive_delay_incidents": 20,
+      "recorded_delay_minutes": 572.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 3,
+      "recorded_incidents": 26,
+      "positive_delay_incidents": 22,
+      "recorded_delay_minutes": 778.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 4,
+      "recorded_incidents": 35,
+      "positive_delay_incidents": 26,
+      "recorded_delay_minutes": 674.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 5,
+      "recorded_incidents": 39,
+      "positive_delay_incidents": 27,
+      "recorded_delay_minutes": 923.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 6,
+      "recorded_incidents": 44,
+      "positive_delay_incidents": 26,
+      "recorded_delay_minutes": 953.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 7,
+      "recorded_incidents": 27,
+      "positive_delay_incidents": 23,
+      "recorded_delay_minutes": 344.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 8,
+      "recorded_incidents": 32,
+      "positive_delay_incidents": 26,
+      "recorded_delay_minutes": 511.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 9,
+      "recorded_incidents": 33,
+      "positive_delay_incidents": 29,
+      "recorded_delay_minutes": 483.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 10,
+      "recorded_incidents": 33,
+      "positive_delay_incidents": 26,
+      "recorded_delay_minutes": 1199.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 11,
+      "recorded_incidents": 24,
+      "positive_delay_incidents": 19,
+      "recorded_delay_minutes": 332.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 12,
+      "recorded_incidents": 32,
+      "positive_delay_incidents": 26,
+      "recorded_delay_minutes": 334.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 13,
+      "recorded_incidents": 46,
+      "positive_delay_incidents": 33,
+      "recorded_delay_minutes": 562.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 14,
+      "recorded_incidents": 74,
+      "positive_delay_incidents": 64,
+      "recorded_delay_minutes": 1952.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 15,
+      "recorded_incidents": 36,
+      "positive_delay_incidents": 29,
+      "recorded_delay_minutes": 861.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 16,
+      "recorded_incidents": 41,
+      "positive_delay_incidents": 35,
+      "recorded_delay_minutes": 1121.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 17,
+      "recorded_incidents": 40,
+      "positive_delay_incidents": 31,
+      "recorded_delay_minutes": 625.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 18,
+      "recorded_incidents": 44,
+      "positive_delay_incidents": 38,
+      "recorded_delay_minutes": 855.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 19,
+      "recorded_incidents": 33,
+      "positive_delay_incidents": 26,
+      "recorded_delay_minutes": 712.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 20,
+      "recorded_incidents": 54,
+      "positive_delay_incidents": 40,
+      "recorded_delay_minutes": 899.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 21,
+      "recorded_incidents": 43,
+      "positive_delay_incidents": 36,
+      "recorded_delay_minutes": 969.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 22,
+      "recorded_incidents": 44,
+      "positive_delay_incidents": 37,
+      "recorded_delay_minutes": 1282.0
+    },
+    {
+      "route": "503 KINGSTON ROAD",
+      "hour": 23,
+      "recorded_incidents": 36,
+      "positive_delay_incidents": 29,
+      "recorded_delay_minutes": 608.0
+    },
+    {
+      "route": "504",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 80.0
+    },
+    {
+      "route": "504",
+      "hour": 21,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 1.0
+    },
+    {
+      "route": "504 AKING",
+      "hour": 12,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 24.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 0,
+      "recorded_incidents": 52,
+      "positive_delay_incidents": 42,
+      "recorded_delay_minutes": 1020.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 1,
+      "recorded_incidents": 84,
+      "positive_delay_incidents": 73,
+      "recorded_delay_minutes": 1638.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 2,
+      "recorded_incidents": 89,
+      "positive_delay_incidents": 65,
+      "recorded_delay_minutes": 1460.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 3,
+      "recorded_incidents": 65,
+      "positive_delay_incidents": 42,
+      "recorded_delay_minutes": 1357.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 4,
+      "recorded_incidents": 50,
+      "positive_delay_incidents": 44,
+      "recorded_delay_minutes": 1071.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 5,
+      "recorded_incidents": 72,
+      "positive_delay_incidents": 53,
+      "recorded_delay_minutes": 1555.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 6,
+      "recorded_incidents": 93,
+      "positive_delay_incidents": 67,
+      "recorded_delay_minutes": 2524.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 7,
+      "recorded_incidents": 57,
+      "positive_delay_incidents": 29,
+      "recorded_delay_minutes": 570.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 8,
+      "recorded_incidents": 58,
+      "positive_delay_incidents": 45,
+      "recorded_delay_minutes": 817.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 9,
+      "recorded_incidents": 72,
+      "positive_delay_incidents": 59,
+      "recorded_delay_minutes": 1196.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 10,
+      "recorded_incidents": 86,
+      "positive_delay_incidents": 80,
+      "recorded_delay_minutes": 2505.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 11,
+      "recorded_incidents": 66,
+      "positive_delay_incidents": 55,
+      "recorded_delay_minutes": 1941.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 12,
+      "recorded_incidents": 76,
+      "positive_delay_incidents": 66,
+      "recorded_delay_minutes": 1246.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 13,
+      "recorded_incidents": 80,
+      "positive_delay_incidents": 52,
+      "recorded_delay_minutes": 1078.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 14,
+      "recorded_incidents": 92,
+      "positive_delay_incidents": 75,
+      "recorded_delay_minutes": 2824.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 15,
+      "recorded_incidents": 88,
+      "positive_delay_incidents": 70,
+      "recorded_delay_minutes": 1809.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 16,
+      "recorded_incidents": 67,
+      "positive_delay_incidents": 51,
+      "recorded_delay_minutes": 1693.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 17,
+      "recorded_incidents": 65,
+      "positive_delay_incidents": 55,
+      "recorded_delay_minutes": 2511.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 18,
+      "recorded_incidents": 85,
+      "positive_delay_incidents": 66,
+      "recorded_delay_minutes": 1936.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 19,
+      "recorded_incidents": 62,
+      "positive_delay_incidents": 54,
+      "recorded_delay_minutes": 1315.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 20,
+      "recorded_incidents": 78,
+      "positive_delay_incidents": 67,
+      "recorded_delay_minutes": 1524.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 21,
+      "recorded_incidents": 79,
+      "positive_delay_incidents": 60,
+      "recorded_delay_minutes": 1735.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 22,
+      "recorded_incidents": 71,
+      "positive_delay_incidents": 57,
+      "recorded_delay_minutes": 1232.0
+    },
+    {
+      "route": "504 KING",
+      "hour": 23,
+      "recorded_incidents": 69,
+      "positive_delay_incidents": 64,
+      "recorded_delay_minutes": 1417.0
+    },
+    {
+      "route": "504 KING (PRIVATE)",
+      "hour": 18,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "504 KING RAD CAR",
+      "hour": 14,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 54.0
+    },
+    {
+      "route": "504 KING- 600",
+      "hour": 2,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 9.0
+    },
+    {
+      "route": "504A KING",
+      "hour": 7,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "504A KING",
+      "hour": 10,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 22.0
+    },
+    {
+      "route": "504B KING",
+      "hour": 5,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 30.0
+    },
+    {
+      "route": "504B KING",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 8.0
+    },
+    {
+      "route": "504D KING",
+      "hour": 8,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "504D/C KING",
+      "hour": 2,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "505",
+      "hour": 4,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 15.0
+    },
+    {
+      "route": "505",
+      "hour": 20,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 14.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 0,
+      "recorded_incidents": 65,
+      "positive_delay_incidents": 54,
+      "recorded_delay_minutes": 1073.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 1,
+      "recorded_incidents": 67,
+      "positive_delay_incidents": 32,
+      "recorded_delay_minutes": 520.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 2,
+      "recorded_incidents": 65,
+      "positive_delay_incidents": 38,
+      "recorded_delay_minutes": 1000.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 3,
+      "recorded_incidents": 51,
+      "positive_delay_incidents": 38,
+      "recorded_delay_minutes": 1020.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 4,
+      "recorded_incidents": 86,
+      "positive_delay_incidents": 49,
+      "recorded_delay_minutes": 855.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 5,
+      "recorded_incidents": 88,
+      "positive_delay_incidents": 45,
+      "recorded_delay_minutes": 921.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 6,
+      "recorded_incidents": 51,
+      "positive_delay_incidents": 33,
+      "recorded_delay_minutes": 1029.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 7,
+      "recorded_incidents": 46,
+      "positive_delay_incidents": 39,
+      "recorded_delay_minutes": 817.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 8,
+      "recorded_incidents": 52,
+      "positive_delay_incidents": 39,
+      "recorded_delay_minutes": 955.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 9,
+      "recorded_incidents": 57,
+      "positive_delay_incidents": 49,
+      "recorded_delay_minutes": 1051.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 10,
+      "recorded_incidents": 53,
+      "positive_delay_incidents": 45,
+      "recorded_delay_minutes": 735.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 11,
+      "recorded_incidents": 57,
+      "positive_delay_incidents": 45,
+      "recorded_delay_minutes": 906.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 12,
+      "recorded_incidents": 65,
+      "positive_delay_incidents": 52,
+      "recorded_delay_minutes": 989.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 13,
+      "recorded_incidents": 63,
+      "positive_delay_incidents": 52,
+      "recorded_delay_minutes": 1213.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 14,
+      "recorded_incidents": 65,
+      "positive_delay_incidents": 46,
+      "recorded_delay_minutes": 918.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 15,
+      "recorded_incidents": 74,
+      "positive_delay_incidents": 59,
+      "recorded_delay_minutes": 2031.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 16,
+      "recorded_incidents": 74,
+      "positive_delay_incidents": 65,
+      "recorded_delay_minutes": 1533.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 17,
+      "recorded_incidents": 66,
+      "positive_delay_incidents": 58,
+      "recorded_delay_minutes": 1494.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 18,
+      "recorded_incidents": 81,
+      "positive_delay_incidents": 71,
+      "recorded_delay_minutes": 2064.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 19,
+      "recorded_incidents": 59,
+      "positive_delay_incidents": 55,
+      "recorded_delay_minutes": 1964.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 20,
+      "recorded_incidents": 79,
+      "positive_delay_incidents": 64,
+      "recorded_delay_minutes": 1653.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 21,
+      "recorded_incidents": 74,
+      "positive_delay_incidents": 58,
+      "recorded_delay_minutes": 1779.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 22,
+      "recorded_incidents": 83,
+      "positive_delay_incidents": 61,
+      "recorded_delay_minutes": 1620.0
+    },
+    {
+      "route": "505 DUNDAS",
+      "hour": 23,
+      "recorded_incidents": 66,
+      "positive_delay_incidents": 60,
+      "recorded_delay_minutes": 1175.0
+    },
+    {
+      "route": "505 DUNDAS (RAD)",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "505 RAD STREETCAR",
+      "hour": 0,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "506",
+      "hour": 5,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 26.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 0,
+      "recorded_incidents": 53,
+      "positive_delay_incidents": 48,
+      "recorded_delay_minutes": 1183.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 1,
+      "recorded_incidents": 33,
+      "positive_delay_incidents": 21,
+      "recorded_delay_minutes": 454.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 2,
+      "recorded_incidents": 46,
+      "positive_delay_incidents": 24,
+      "recorded_delay_minutes": 926.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 3,
+      "recorded_incidents": 35,
+      "positive_delay_incidents": 27,
+      "recorded_delay_minutes": 667.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 4,
+      "recorded_incidents": 50,
+      "positive_delay_incidents": 41,
+      "recorded_delay_minutes": 1864.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 5,
+      "recorded_incidents": 47,
+      "positive_delay_incidents": 30,
+      "recorded_delay_minutes": 577.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 6,
+      "recorded_incidents": 50,
+      "positive_delay_incidents": 28,
+      "recorded_delay_minutes": 468.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 7,
+      "recorded_incidents": 46,
+      "positive_delay_incidents": 31,
+      "recorded_delay_minutes": 327.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 8,
+      "recorded_incidents": 52,
+      "positive_delay_incidents": 44,
+      "recorded_delay_minutes": 666.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 9,
+      "recorded_incidents": 71,
+      "positive_delay_incidents": 60,
+      "recorded_delay_minutes": 1452.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 10,
+      "recorded_incidents": 68,
+      "positive_delay_incidents": 59,
+      "recorded_delay_minutes": 1082.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 11,
+      "recorded_incidents": 59,
+      "positive_delay_incidents": 52,
+      "recorded_delay_minutes": 958.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 12,
+      "recorded_incidents": 63,
+      "positive_delay_incidents": 51,
+      "recorded_delay_minutes": 883.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 13,
+      "recorded_incidents": 57,
+      "positive_delay_incidents": 49,
+      "recorded_delay_minutes": 964.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 14,
+      "recorded_incidents": 88,
+      "positive_delay_incidents": 73,
+      "recorded_delay_minutes": 1429.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 15,
+      "recorded_incidents": 78,
+      "positive_delay_incidents": 62,
+      "recorded_delay_minutes": 1461.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 16,
+      "recorded_incidents": 89,
+      "positive_delay_incidents": 62,
+      "recorded_delay_minutes": 1547.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 17,
+      "recorded_incidents": 63,
+      "positive_delay_incidents": 56,
+      "recorded_delay_minutes": 1336.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 18,
+      "recorded_incidents": 69,
+      "positive_delay_incidents": 53,
+      "recorded_delay_minutes": 1470.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 19,
+      "recorded_incidents": 77,
+      "positive_delay_incidents": 62,
+      "recorded_delay_minutes": 2013.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 20,
+      "recorded_incidents": 61,
+      "positive_delay_incidents": 50,
+      "recorded_delay_minutes": 1126.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 21,
+      "recorded_incidents": 70,
+      "positive_delay_incidents": 60,
+      "recorded_delay_minutes": 2055.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 22,
+      "recorded_incidents": 68,
+      "positive_delay_incidents": 59,
+      "recorded_delay_minutes": 2160.0
+    },
+    {
+      "route": "506 CARLTON",
+      "hour": 23,
+      "recorded_incidents": 59,
+      "positive_delay_incidents": 49,
+      "recorded_delay_minutes": 1241.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 0,
+      "recorded_incidents": 20,
+      "positive_delay_incidents": 19,
+      "recorded_delay_minutes": 358.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 1,
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 11,
+      "recorded_delay_minutes": 245.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 2,
+      "recorded_incidents": 18,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 181.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 3,
+      "recorded_incidents": 13,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 276.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 4,
+      "recorded_incidents": 22,
+      "positive_delay_incidents": 18,
+      "recorded_delay_minutes": 453.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 5,
+      "recorded_incidents": 27,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 213.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 6,
+      "recorded_incidents": 8,
+      "positive_delay_incidents": 6,
+      "recorded_delay_minutes": 61.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 7,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 20.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 8,
+      "recorded_incidents": 16,
+      "positive_delay_incidents": 14,
+      "recorded_delay_minutes": 279.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 9,
+      "recorded_incidents": 14,
+      "positive_delay_incidents": 13,
+      "recorded_delay_minutes": 217.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 10,
+      "recorded_incidents": 9,
+      "positive_delay_incidents": 7,
+      "recorded_delay_minutes": 138.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 11,
+      "recorded_incidents": 11,
+      "positive_delay_incidents": 11,
+      "recorded_delay_minutes": 226.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 12,
+      "recorded_incidents": 15,
+      "positive_delay_incidents": 14,
+      "recorded_delay_minutes": 224.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 13,
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 400.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 14,
+      "recorded_incidents": 16,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 275.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 15,
+      "recorded_incidents": 16,
+      "positive_delay_incidents": 15,
+      "recorded_delay_minutes": 647.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 16,
+      "recorded_incidents": 14,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 235.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 17,
+      "recorded_incidents": 11,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 136.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 18,
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 337.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 19,
+      "recorded_incidents": 12,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 281.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 20,
+      "recorded_incidents": 19,
+      "positive_delay_incidents": 17,
+      "recorded_delay_minutes": 425.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 21,
+      "recorded_incidents": 21,
+      "positive_delay_incidents": 20,
+      "recorded_delay_minutes": 497.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 22,
+      "recorded_incidents": 15,
+      "positive_delay_incidents": 15,
+      "recorded_delay_minutes": 260.0
+    },
+    {
+      "route": "507 LONG BRANCH",
+      "hour": 23,
+      "recorded_incidents": 10,
+      "positive_delay_incidents": 8,
+      "recorded_delay_minutes": 270.0
+    },
+    {
+      "route": "507 LONG BRANCH (OTC)",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 6,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 3,
+      "recorded_delay_minutes": 64.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 7,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 238.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 8,
+      "recorded_incidents": 9,
+      "positive_delay_incidents": 9,
+      "recorded_delay_minutes": 356.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 9,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 34.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 10,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 21.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 14,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 57.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 15,
+      "recorded_incidents": 11,
+      "positive_delay_incidents": 9,
+      "recorded_delay_minutes": 533.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 16,
+      "recorded_incidents": 12,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 482.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 17,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 45.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 18,
+      "recorded_incidents": 6,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 178.0
+    },
+    {
+      "route": "508 LAKESHORE",
+      "hour": 19,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 20.0
+    },
+    {
+      "route": "509 HARBOUR FRONT",
+      "hour": 12,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 22.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 0,
+      "recorded_incidents": 13,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 189.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 1,
+      "recorded_incidents": 9,
+      "positive_delay_incidents": 3,
+      "recorded_delay_minutes": 85.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 2,
+      "recorded_incidents": 4,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 57.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 3,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 4,
+      "recorded_incidents": 7,
+      "positive_delay_incidents": 6,
+      "recorded_delay_minutes": 60.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 5,
+      "recorded_incidents": 4,
+      "positive_delay_incidents": 4,
+      "recorded_delay_minutes": 128.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 6,
+      "recorded_incidents": 8,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 398.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 7,
+      "recorded_incidents": 10,
+      "positive_delay_incidents": 9,
+      "recorded_delay_minutes": 134.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 8,
+      "recorded_incidents": 5,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 23.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 9,
+      "recorded_incidents": 11,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 43.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 10,
+      "recorded_incidents": 11,
+      "positive_delay_incidents": 9,
+      "recorded_delay_minutes": 237.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 11,
+      "recorded_incidents": 6,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 422.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 12,
+      "recorded_incidents": 14,
+      "positive_delay_incidents": 14,
+      "recorded_delay_minutes": 217.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 13,
+      "recorded_incidents": 16,
+      "positive_delay_incidents": 15,
+      "recorded_delay_minutes": 358.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 14,
+      "recorded_incidents": 5,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 317.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 15,
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 185.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 16,
+      "recorded_incidents": 16,
+      "positive_delay_incidents": 6,
+      "recorded_delay_minutes": 121.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 17,
+      "recorded_incidents": 13,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 128.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 18,
+      "recorded_incidents": 13,
+      "positive_delay_incidents": 7,
+      "recorded_delay_minutes": 71.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 19,
+      "recorded_incidents": 14,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 153.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 20,
+      "recorded_incidents": 13,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 263.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 21,
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 142.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 22,
+      "recorded_incidents": 12,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 195.0
+    },
+    {
+      "route": "509 HARBOURFRONT",
+      "hour": 23,
+      "recorded_incidents": 10,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 125.0
+    },
+    {
+      "route": "510",
+      "hour": 9,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "510",
+      "hour": 14,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 11.0
+    },
+    {
+      "route": "510",
+      "hour": 23,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 0,
+      "recorded_incidents": 19,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 344.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 1,
+      "recorded_incidents": 8,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 61.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 2,
+      "recorded_incidents": 24,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 365.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 3,
+      "recorded_incidents": 5,
+      "positive_delay_incidents": 5,
+      "recorded_delay_minutes": 119.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 4,
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 11,
+      "recorded_delay_minutes": 134.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 5,
+      "recorded_incidents": 28,
+      "positive_delay_incidents": 13,
+      "recorded_delay_minutes": 317.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 6,
+      "recorded_incidents": 19,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 125.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 7,
+      "recorded_incidents": 22,
+      "positive_delay_incidents": 13,
+      "recorded_delay_minutes": 108.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 8,
+      "recorded_incidents": 32,
+      "positive_delay_incidents": 22,
+      "recorded_delay_minutes": 272.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 9,
+      "recorded_incidents": 31,
+      "positive_delay_incidents": 22,
+      "recorded_delay_minutes": 300.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 10,
+      "recorded_incidents": 27,
+      "positive_delay_incidents": 22,
+      "recorded_delay_minutes": 439.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 11,
+      "recorded_incidents": 27,
+      "positive_delay_incidents": 26,
+      "recorded_delay_minutes": 275.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 12,
+      "recorded_incidents": 26,
+      "positive_delay_incidents": 20,
+      "recorded_delay_minutes": 261.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 13,
+      "recorded_incidents": 37,
+      "positive_delay_incidents": 31,
+      "recorded_delay_minutes": 534.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 14,
+      "recorded_incidents": 52,
+      "positive_delay_incidents": 32,
+      "recorded_delay_minutes": 619.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 15,
+      "recorded_incidents": 37,
+      "positive_delay_incidents": 21,
+      "recorded_delay_minutes": 317.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 16,
+      "recorded_incidents": 32,
+      "positive_delay_incidents": 18,
+      "recorded_delay_minutes": 381.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 17,
+      "recorded_incidents": 33,
+      "positive_delay_incidents": 20,
+      "recorded_delay_minutes": 313.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 18,
+      "recorded_incidents": 34,
+      "positive_delay_incidents": 25,
+      "recorded_delay_minutes": 283.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 19,
+      "recorded_incidents": 30,
+      "positive_delay_incidents": 21,
+      "recorded_delay_minutes": 259.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 20,
+      "recorded_incidents": 32,
+      "positive_delay_incidents": 26,
+      "recorded_delay_minutes": 465.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 21,
+      "recorded_incidents": 26,
+      "positive_delay_incidents": 22,
+      "recorded_delay_minutes": 742.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 22,
+      "recorded_incidents": 28,
+      "positive_delay_incidents": 22,
+      "recorded_delay_minutes": 455.0
+    },
+    {
+      "route": "510 SPADINA",
+      "hour": 23,
+      "recorded_incidents": 32,
+      "positive_delay_incidents": 17,
+      "recorded_delay_minutes": 282.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 0,
+      "recorded_incidents": 14,
+      "positive_delay_incidents": 13,
+      "recorded_delay_minutes": 368.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 1,
+      "recorded_incidents": 18,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 312.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 2,
+      "recorded_incidents": 13,
+      "positive_delay_incidents": 4,
+      "recorded_delay_minutes": 134.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 3,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 4,
+      "recorded_incidents": 8,
+      "positive_delay_incidents": 8,
+      "recorded_delay_minutes": 156.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 5,
+      "recorded_incidents": 9,
+      "positive_delay_incidents": 8,
+      "recorded_delay_minutes": 131.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 6,
+      "recorded_incidents": 12,
+      "positive_delay_incidents": 7,
+      "recorded_delay_minutes": 69.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 7,
+      "recorded_incidents": 19,
+      "positive_delay_incidents": 17,
+      "recorded_delay_minutes": 430.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 8,
+      "recorded_incidents": 18,
+      "positive_delay_incidents": 13,
+      "recorded_delay_minutes": 140.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 9,
+      "recorded_incidents": 14,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 103.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 10,
+      "recorded_incidents": 13,
+      "positive_delay_incidents": 9,
+      "recorded_delay_minutes": 113.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 11,
+      "recorded_incidents": 24,
+      "positive_delay_incidents": 17,
+      "recorded_delay_minutes": 554.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 12,
+      "recorded_incidents": 14,
+      "positive_delay_incidents": 11,
+      "recorded_delay_minutes": 293.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 13,
+      "recorded_incidents": 16,
+      "positive_delay_incidents": 12,
+      "recorded_delay_minutes": 464.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 14,
+      "recorded_incidents": 20,
+      "positive_delay_incidents": 17,
+      "recorded_delay_minutes": 318.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 15,
+      "recorded_incidents": 17,
+      "positive_delay_incidents": 14,
+      "recorded_delay_minutes": 403.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 16,
+      "recorded_incidents": 24,
+      "positive_delay_incidents": 20,
+      "recorded_delay_minutes": 451.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 17,
+      "recorded_incidents": 21,
+      "positive_delay_incidents": 18,
+      "recorded_delay_minutes": 314.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 18,
+      "recorded_incidents": 25,
+      "positive_delay_incidents": 18,
+      "recorded_delay_minutes": 292.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 19,
+      "recorded_incidents": 19,
+      "positive_delay_incidents": 13,
+      "recorded_delay_minutes": 239.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 20,
+      "recorded_incidents": 16,
+      "positive_delay_incidents": 14,
+      "recorded_delay_minutes": 175.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 21,
+      "recorded_incidents": 21,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 256.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 22,
+      "recorded_incidents": 20,
+      "positive_delay_incidents": 14,
+      "recorded_delay_minutes": 553.0
+    },
+    {
+      "route": "511 BATHURST",
+      "hour": 23,
+      "recorded_incidents": 15,
+      "positive_delay_incidents": 14,
+      "recorded_delay_minutes": 200.0
+    },
+    {
+      "route": "512",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 8.0
+    },
+    {
+      "route": "512",
+      "hour": 23,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "512 ST CLAIR",
+      "hour": 14,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "512 ST CLAIR",
+      "hour": 16,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 97.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 0,
+      "recorded_incidents": 10,
+      "positive_delay_incidents": 10,
+      "recorded_delay_minutes": 158.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 1,
+      "recorded_incidents": 18,
+      "positive_delay_incidents": 15,
+      "recorded_delay_minutes": 271.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 2,
+      "recorded_incidents": 27,
+      "positive_delay_incidents": 19,
+      "recorded_delay_minutes": 369.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 3,
+      "recorded_incidents": 11,
+      "positive_delay_incidents": 8,
+      "recorded_delay_minutes": 178.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 4,
+      "recorded_incidents": 18,
+      "positive_delay_incidents": 13,
+      "recorded_delay_minutes": 168.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 5,
+      "recorded_incidents": 33,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 160.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 6,
+      "recorded_incidents": 35,
+      "positive_delay_incidents": 28,
+      "recorded_delay_minutes": 761.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 7,
+      "recorded_incidents": 32,
+      "positive_delay_incidents": 30,
+      "recorded_delay_minutes": 410.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 8,
+      "recorded_incidents": 31,
+      "positive_delay_incidents": 25,
+      "recorded_delay_minutes": 269.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 9,
+      "recorded_incidents": 19,
+      "positive_delay_incidents": 16,
+      "recorded_delay_minutes": 473.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 10,
+      "recorded_incidents": 28,
+      "positive_delay_incidents": 23,
+      "recorded_delay_minutes": 723.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 11,
+      "recorded_incidents": 24,
+      "positive_delay_incidents": 22,
+      "recorded_delay_minutes": 392.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 12,
+      "recorded_incidents": 21,
+      "positive_delay_incidents": 15,
+      "recorded_delay_minutes": 428.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 13,
+      "recorded_incidents": 42,
+      "positive_delay_incidents": 37,
+      "recorded_delay_minutes": 725.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 14,
+      "recorded_incidents": 100,
+      "positive_delay_incidents": 77,
+      "recorded_delay_minutes": 856.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 15,
+      "recorded_incidents": 84,
+      "positive_delay_incidents": 61,
+      "recorded_delay_minutes": 910.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 16,
+      "recorded_incidents": 83,
+      "positive_delay_incidents": 72,
+      "recorded_delay_minutes": 1006.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 17,
+      "recorded_incidents": 54,
+      "positive_delay_incidents": 41,
+      "recorded_delay_minutes": 447.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 18,
+      "recorded_incidents": 42,
+      "positive_delay_incidents": 37,
+      "recorded_delay_minutes": 681.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 19,
+      "recorded_incidents": 77,
+      "positive_delay_incidents": 70,
+      "recorded_delay_minutes": 1295.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 20,
+      "recorded_incidents": 57,
+      "positive_delay_incidents": 45,
+      "recorded_delay_minutes": 670.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 21,
+      "recorded_incidents": 37,
+      "positive_delay_incidents": 28,
+      "recorded_delay_minutes": 385.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 22,
+      "recorded_incidents": 32,
+      "positive_delay_incidents": 29,
+      "recorded_delay_minutes": 618.0
+    },
+    {
+      "route": "512 ST. CLAIR",
+      "hour": 23,
+      "recorded_incidents": 37,
+      "positive_delay_incidents": 31,
+      "recorded_delay_minutes": 690.0
+    },
+    {
+      "route": "512`",
+      "hour": 15,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 34.0
+    },
+    {
+      "route": "514 CHERRY",
+      "hour": 16,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "555",
+      "hour": 8,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 22.0
+    },
+    {
+      "route": "555",
+      "hour": 11,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "555",
+      "hour": 12,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "555",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "555 (505 DUNDAS)",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 169.0
+    },
+    {
+      "route": "600",
+      "hour": 3,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600",
+      "hour": 9,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600",
+      "hour": 15,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600",
+      "hour": 16,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600",
+      "hour": 18,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "600",
+      "hour": 23,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "600 (OPERATING AS 503",
+      "hour": 9,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600 RAD",
+      "hour": 2,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600 RAD",
+      "hour": 4,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600 RAD",
+      "hour": 8,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600 RAD",
+      "hour": 21,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600 RAD 504",
+      "hour": 16,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600 RAD ON 512 ST CLAI",
+      "hour": 18,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "600 RAD VEHICLE",
+      "hour": 7,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "600/506 CARLTON",
+      "hour": 21,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "705",
+      "hour": 2,
+      "recorded_incidents": 3,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "705",
+      "hour": 6,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "705",
+      "hour": 10,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 8.0
+    },
+    {
+      "route": "705",
+      "hour": 13,
+      "recorded_incidents": 11,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 586.0
+    },
+    {
+      "route": "705",
+      "hour": 17,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "705 RAD",
+      "hour": 2,
+      "recorded_incidents": 9,
+      "positive_delay_incidents": 2,
+      "recorded_delay_minutes": 10.0
+    },
+    {
+      "route": "705 RAD",
+      "hour": 3,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "705 RAD",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "899",
+      "hour": 20,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "999",
+      "hour": 1,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "999",
+      "hour": 5,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 585.0
+    },
+    {
+      "route": "999",
+      "hour": 6,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "999",
+      "hour": 7,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 1.0
+    },
+    {
+      "route": "999",
+      "hour": 8,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "999",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "999",
+      "hour": 20,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "A410",
+      "hour": 0,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "CARHOUSE",
+      "hour": 7,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "CHO",
+      "hour": 17,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "CNE EXTRA",
+      "hour": 12,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 6.0
+    },
+    {
+      "route": "CNE EXTRA",
+      "hour": 15,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "EXTRA",
+      "hour": 7,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "FLEET VEHICLE - A",
+      "hour": 23,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "OTC",
+      "hour": 11,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 127.0
+    },
+    {
+      "route": "OTC",
+      "hour": 12,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "OTC",
+      "hour": 13,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "OTC CAR",
+      "hour": 11,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "RAD",
+      "hour": 2,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 5.0
+    },
+    {
+      "route": "RAD",
+      "hour": 3,
+      "recorded_incidents": 2,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "RAD",
+      "hour": 6,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "RAD",
+      "hour": 7,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 8.0
+    },
+    {
+      "route": "RAD",
+      "hour": 9,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "RAD",
+      "hour": 11,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "RAD",
+      "hour": 15,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "RAD",
+      "hour": 23,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 1,
+      "recorded_delay_minutes": 79.0
+    },
+    {
+      "route": "RAD - 506 CARLTON",
+      "hour": 10,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "S",
+      "hour": 12,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "STORM CAR - 505",
+      "hour": 1,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "TEST CAR",
+      "hour": 1,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "TRACK 11",
+      "hour": 23,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "TRACK 2 - SWITCH 130",
+      "hour": 0,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "TRAINING VEHICLE",
+      "hour": 22,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    },
+    {
+      "route": "YU",
+      "hour": 10,
+      "recorded_incidents": 1,
+      "positive_delay_incidents": 0,
+      "recorded_delay_minutes": 0.0
+    }
+  ],
+  "weekday": [
+    {
+      "day_of_week": "Friday",
+      "recorded_incidents": 1566,
+      "positive_delay_incidents": 1251,
+      "recorded_delay_minutes": 29574.0
+    },
+    {
+      "day_of_week": "Monday",
+      "recorded_incidents": 1540,
+      "positive_delay_incidents": 1228,
+      "recorded_delay_minutes": 30492.0
+    },
+    {
+      "day_of_week": "Saturday",
+      "recorded_incidents": 1626,
+      "positive_delay_incidents": 1284,
+      "recorded_delay_minutes": 32730.0
+    },
+    {
+      "day_of_week": "Sunday",
+      "recorded_incidents": 1556,
+      "positive_delay_incidents": 1214,
+      "recorded_delay_minutes": 30732.0
+    },
+    {
+      "day_of_week": "Thursday",
+      "recorded_incidents": 1575,
+      "positive_delay_incidents": 1212,
+      "recorded_delay_minutes": 28188.0
+    },
+    {
+      "day_of_week": "Tuesday",
+      "recorded_incidents": 1419,
+      "positive_delay_incidents": 1089,
+      "recorded_delay_minutes": 27035.0
+    },
+    {
+      "day_of_week": "Wednesday",
+      "recorded_incidents": 1462,
+      "positive_delay_incidents": 1099,
+      "recorded_delay_minutes": 24914.0
+    }
+  ]
+}

@@ -1,8 +1,16 @@
-name: Publish CommuteIQ Dashboard
+name: Publish StopStride REAL TTC Analytics
 
-# Manual deployment only: owner must first enable Settings > Pages > GitHub Actions.
-# This prevents accidentally publishing user-supplied local analytics.
+# Source snapshot must come from actual TTC incident records, verified via SHA256.
+# Publish only dashboard assets explicitly listed below, never demo CSV/JSON files.
 on:
+  push:
+    branches: ["main"]
+    paths:
+      - "dashboard/index.html"
+      - "dashboard/styles.css"
+      - "dashboard/real_app.js"
+      - "dashboard/real_data.json"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -11,7 +19,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "commuteiq-pages"
+  group: "stopstride-real-data-pages"
   cancel-in-progress: true
 
 jobs:
@@ -22,17 +30,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Ensure dataset is synthetic
+      - name: Validate REAL TTC provenance, reject simulated content
         run: |
           python - <<'PY'
-          import json
-          with open("dashboard/data.json", encoding="utf-8") as file:
-              data = json.load(file)
-          assert data["meta"]["origin"] == "DEMO", "Refusing to publish non-DEMO data"
+          import json, pathlib
+          path = pathlib.Path("dashboard/real_data.json")
+          if not path.exists():
+              raise SystemExit("Refusing to deploy: verified real TTC snapshot missing")
+          obj = json.loads(path.read_text(encoding="utf-8"))
+          m = obj.get("meta", {})
+          assert m.get("origin") == "REAL", "Synthetic or unverified data"
+          assert m.get("source") and m.get("source_sha256"), "Missing source provenance"
+          assert obj.get("summary",{}).get("recorded_incidents", 0) > 100
+          print("Deploying real, historical TTC records from",m["source"])
           PY
+      - name: Publish strictly allowlisted assets; never publish demo fixture or raw rider data
+        run: |
+          mkdir -p site
+          cp dashboard/index.html dashboard/styles.css dashboard/real_app.js dashboard/real_data.json site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dashboard
+          path: site
       - id: deployment
         uses: actions/deploy-pages@v4

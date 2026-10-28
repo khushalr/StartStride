@@ -1,66 +1,31 @@
-# Excel operations dashboard and VBA reporting
+# StopStride Excel/VBA analytics — REAL TTC streetcar records
 
-This folder contains `CommuteIQReport.bas`, an Excel desktop VBA module. A companion, formula-driven `.xlsx` portfolio demo is generated separately and must be reviewed in Excel before it is added to a public release.
+**Use the validated TTC historical incident data in `dashboard/bi/`.** The earlier synthetic wait/walk reporting experiment is not a source for public claims.
 
-**Important:** The report fixture contains **synthetic** examples (not live TTC operations or rider activity). The product's working brand may change; the package filename does not create a trademark claim.
+## Excel workbook with real records
 
-## Workbook contract
+A five-sheet `.xlsx` portfolio workbook was generated from the archived original TTC 2025 CSV. Its sheets are:
 
-The operations workbook needs these exact worksheet names:
+- `Dashboard`: formula-driven logged-incident KPIs and route/month charts.
+- `Route_Analysis`: all TTC reported route labels, actual incident counts, positive-delay counts and recorded minutes.
+- `Monthly`: logged historical incident totals by month.
+- `Hourly`: logged historical incident totals by recorded time of day.
+- `Provenance`: verified source URL, SHA256 checksum, covered dates, excluded record count and methodological limitations.
 
-| Sheet | Purpose |
-|---|---|
-| `Dashboard` | KPI report, cells A1:B9, plus optional visualizations to the right |
-| `validation_result` | QA results, with first-row headings `rule_id`, `status`, `affected_records` and `data_origin` |
-| `recommendation_event` | Decisions, with first-row headings `route_id`, `action`, `expected_steps`, `data_origin` |
-| `Route_Summary` | Excel formula-driven route KPIs and chart source |
-| `Read_Me` | Definitions, limitations and usage |
+Rebuild equivalent Excel tables from the version-controlled **real** `dashboard/bi/streetcar_*.csv` files. No fake data is needed. The corresponding source manifest is `dashboard/bi/SOURCE.json`.
 
-Columns **can be rearranged** as long as header labels match; VBA searches the first row by name. The workbook also provides explicit DEMO provenance.
+## VBA reporting module
 
-## What the VBA actually computes
+The relevant module is **`StopStrideRealTTC.bas`**. Import it into the Visual Basic Editor of a saved macro-enabled `.xlsm` copy of the real-data workbook.
 
-`BuildOperationsSummary` reads worksheet rows and calculates:
+`VerifyRealTTCAndExport` checks the source SHA256 cell, nonempty route/month data, total logged incidents reconciled across tables, and exports a formatted Dashboard PDF if those checks pass. It fails visibly when inputs are missing or inconsistent.
 
-- QA rule count and count of failed rules.
-- Rule pass rate.
-- Number of WALK and WAIT recommendations.
-- Sum of potential steps **only** for WALK recommendations.
-- Number of DEMO-labelled recommendation events.
+**VBA execution has not been validated in desktop Excel yet.** Review the source, test it in Excel and inspect the generated PDF before claiming operational automation.
 
-`RefreshAndExportDashboard` requests source refresh, recalculates this summary, and exports the `Dashboard` sheet to PDF alongside the workbook.
+The old `CommuteIQReport.bas` is historical prototype code for simulated recommendation events and is not appropriate for the verified real TTC incident workbook.
 
-The VBA is **source code, not a pre-enabled macro workbook**. It has not been executed and validated in Excel for Mac or Excel for Windows. External data connections may refresh asynchronously, so verify the source sheets have finished refreshing before sharing the PDF.
+## Measurement notes
 
-## How to use this in desktop Excel
+The unit of observation is a TTC-recorded incident, not an individual passenger journey or a particular streetcar trip. Route incident counts are not on-time performance rates.
 
-1. Open the companion `.xlsx` workbook and confirm the five sheet names and the DEMO banner.
-2. Save As `Excel Macro-Enabled Workbook (.xlsm)` in a trusted local folder.
-3. Open the Visual Basic Editor and import `CommuteIQReport.bas` as a module.
-4. Run `BuildOperationsSummary` first and compare it with formula-driven KPIs.
-5. Run `RefreshAndExportDashboard` and check that the PDF is readable and carries the synthetic-data warning.
-6. Do not enable unknown macros from unsolicited spreadsheets; this module is open-source and should be reviewed before use.
-
-### Expected results for the versioned synthetic fixture
-
-| Metric | Expected |
-|---|---:|
-| GTFS QA rules | 16 |
-| Failed rules | 3 |
-| Rule pass rate | 81.25% |
-| Simulated recommendation events | 36 |
-| Suggested WALK | 15 |
-| Suggested WAIT | 21 |
-| Potential steps from WALK suggestions | 6,930 |
-| Verified streetcar catches | 0 observations (unknown, **not zero catches**) |
-
-## Next Excel engineering milestones
-
-- Test and record the desktop Excel macro run (Mac and Windows compatibility).
-- Create a source refresh mechanism tied to the SQL export.
-- Add a sample PDF screenshot/artifact only after successful validation in Excel.
-- Publish a verified macro-enabled workbook under Releases if appropriate.
-
-## Licensing and safety
-
-The project is an independent transit data science demo; it is not affiliated with or endorsed by the TTC. Synthetic movement recommendations are not safety instructions for a live street or a guarantee of boarding.
+Contains information licensed under the Open Government Licence – Toronto. StopStride is an independent research project, not affiliated with the TTC.
