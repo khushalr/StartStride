@@ -30,7 +30,7 @@ def build(csv_path: Path, source_meta: Path, out: Path) -> dict:
         frame = pd.read_csv(csv_path, dtype=str, encoding="utf-8-sig", low_memory=False)
     except UnicodeDecodeError:
         frame = pd.read_csv(csv_path, dtype=str, encoding="cp1252", low_memory=False)
-    frame.columns = [c.strip().lower() for c in frame.columns]
+    frame.columns = [c.strip().lower().replace('report.date','date').replace('min.delay','min delay').replace('min.gap','min gap') for c in frame.columns]
     if not NEEDED.issubset(frame.columns):
         raise ValueError(f"Missing fields: {sorted(NEEDED - set(frame.columns))}")
     rows_read = len(frame)
