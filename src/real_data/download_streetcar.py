@@ -81,26 +81,31 @@ def download_uoft_2025() -> tuple[bytes, str, str]:
         return zf.read(names[0]), UOFT_ARCHIVE, "archival copy, through 2025"
 
 
+def _validate_streetcar_csv(payload: bytes) -> None:
+    decoded = payload.decode("utf-8-sig", errors="replace")
+    headers = next(csv.reader(io.StringIO(decoded)))
+    normalized = {h.strip().lower() for h in headers}
+    if not {"date", "route", "time", "min delay"}.issubset(normalized):
+        raise ValueError(f"NOT streetcar format; actual CSV columns are {headers}")
+    if sum(1 for _ in io.StringIO(decoded)) < 100:
+        raise ValueError("TTC streetcar CSV unexpectedly small; refusing to publish")
+
+
 def save_real_csv(out: Path, fallback_uoft: bool = False) -> dict:
     errors = []
     try:
         payload, source, modified = download_official()
+        _validate_streetcar_csv(payload)
         method = "official Toronto Open Data CKAN CSV"
     except Exception as exc:
         errors.append(f"Official CKAN error: {type(exc).__name__}: {exc}")
+        print(errors[-1], flush=True)
         if not fallback_uoft:
-            raise RuntimeError("Official download failed; no simulated-data fallback. " +
-                               errors[-1]) from exc
+            raise RuntimeError("Official download failed or returned non-streetcar data; "
+                               "no synthetic fallback. " + errors[-1]) from exc
         payload, source, modified = download_uoft_2025()
+        _validate_streetcar_csv(payload)
         method = "University of Toronto archived copy of TTC records (2025 only)"
-    # Confirm a CSV containing actual fields, not a CKAN error page.
-    text = payload.decode("utf-8-sig", errors="replace")
-    headers = csv.reader(io.StringIO(text)).__next__()
-    normalized = {h.strip().lower() for h in headers}
-    if not {"date", "route", "time", "min delay"}.issubset(normalized):
-        raise ValueError(f"Unexpected TTC CSV headers {headers}; aborting")
-    if sum(1 for _ in io.StringIO(text)) < 100:
-        raise ValueError("TTC CSV unexpectedly small; refusing to publish")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_bytes(payload)
     meta = {
@@ -112,7 +117,7 @@ def save_real_csv(out: Path, fallback_uoft: bool = False) -> dict:
         "sha256": hashlib.sha256(payload).hexdigest(),
         "source_bytes": len(payload),
     }
-    out.with_suffix(".source.json").write_text(json.dumps(meta, indent=2)+"\n", encoding="utf-8")
+    out.with_suffix(".source.json").write_text(json.dumps(meta, indent=2)+"\\n", encoding="utf-8")
     return meta
 
 
