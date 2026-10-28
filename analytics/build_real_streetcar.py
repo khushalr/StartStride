@@ -10,13 +10,14 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, timezone
 import json
+import sqlite3
 from pathlib import Path
 import pandas as pd
 
 NEEDED = {"date", "route", "time", "min delay"}
 
 
-def build(csv_path: Path, source_meta: Path, out: Path) -> dict:
+def build(csv_path: Path, source_meta: Path, out: Path, sqlite_path: Path | None = None) -> dict:
     if not csv_path.exists():
         raise FileNotFoundError(csv_path)
     meta = json.loads(source_meta.read_text(encoding="utf-8"))
@@ -74,6 +75,33 @@ def build(csv_path: Path, source_meta: Path, out: Path) -> dict:
     data["day_of_week"] = data["date"].dt.day_name()
     data["positive"] = data["minutes"] > 0
     positive = data.loc[data["positive"]]
+
+    # Materialize the validated ACTUAL TTC incidents in a relational SQLite table.
+    # This supports analyst SQL queries, reproducible BI exports and interviews.
+    if sqlite_path is not None:
+        sqlite_path.parent.mkdir(parents=True, exist_ok=True)
+        with sqlite3.connect(sqlite_path) as con:
+            with con:
+                con.execute("DROP TABLE IF EXISTS streetcar_incident")
+                con.execute("""CREATE TABLE streetcar_incident (
+                    incident_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    record_date TEXT NOT NULL,
+                    route TEXT NOT NULL,
+                    hour INTEGER NOT NULL CHECK(hour BETWEEN 0 AND 23),
+                    delay_minutes REAL NOT NULL CHECK(delay_minutes >= 0),
+                    source_sha256 TEXT NOT NULL)""")
+                con.executemany(
+                    """INSERT INTO streetcar_incident(
+                        record_date, route, hour, delay_minutes, source_sha256)
+                        VALUES (?, ?, ?, ?, ?)""",
+                    ((row.date.strftime("%Y-%m-%d"), row.route, int(row.hour),
+                      float(row.minutes), meta["sha256"])
+                     for row in data.itertuples(index=False))
+                )
+                con.execute("CREATE INDEX idx_streetcar_route_time ON streetcar_incident(route, record_date, hour)")
+                actual = con.execute("SELECT COUNT(*) FROM streetcar_incident").fetchone()[0]
+                if actual != len(data):
+                    raise ValueError("SQLite row count does not match validated TTC data")
 
     def groups(cols: list[str]) -> list[dict]:
         result = data.groupby(cols, dropna=False).agg(
@@ -135,7 +163,9 @@ if __name__ == "__main__":
     parser.add_argument("--csv", type=Path, required=True)
     parser.add_argument("--source-meta", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--sqlite-db", type=Path, default=None,
+                        help="Optional destination for validated real incident-level SQLite table")
     args = parser.parse_args()
-    result = build(args.csv, args.source_meta, args.out)
+    result = build(args.csv, args.source_meta, args.out, args.sqlite_db)
     print(json.dumps({"source": result["meta"]["source"], "last_record": result["meta"]["last_record"],
                       "summary": result["summary"]}, indent=2))
