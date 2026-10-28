@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CommuteIQ: interactive transit QA and wait-or-walk decision intelligence research dashboard.">
+  <title>CommuteIQ | Transit Intelligence Lab</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./logic.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to dashboard</a>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark" aria-hidden="true">C<span>•</span></div><div><div class="brand-name">COMMUTE<span>IQ</span></div><div class="brand-sub">TRANSIT INTELLIGENCE LAB</div></div></div>
+      <div class="header-right"><span class="header-label"><span class="dot"></span> INDEPENDENT RESEARCH PROJECT</span><a class="github-link" href="https://github.com/khushalr/ttc-gtfs-qa-validation" target="_blank" rel="noopener noreferrer">VIEW SOURCE <span aria-hidden="true">↗</span></a></div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-copy">
+          <p class="eyebrow">OPERATIONS DASHBOARD / V1.0</p>
+          <h1 id="hero-heading">Move smarter.<br><em>Not just faster.</em></h1>
+          <p class="lead">An explainable decision engine for urban transit: should you wait for the streetcar, or walk to the next stop?</p>
+          <div class="hero-tags"><span class="pill"><span class="pill-dot"></span> <span id="origin-pill">SYNTHETIC DATA</span></span><span class="pill muted-pill">SQL → ANALYTICS → DECISIONS</span></div>
+        </div>
+        <div class="route-art" aria-label="Illustration of a hypothetical streetcar route with consecutive stops">
+          <div class="route-label">THE COMMUTE PROBLEM <span>01 / 03</span></div>
+          <svg viewBox="0 0 500 210" role="img" aria-labelledby="route-title">
+            <title id="route-title">Schematic route map from current stop to next stop</title>
+            <defs><linearGradient id="track" x1="0" x2="1"><stop offset="0" stop-color="#77f2c1"/><stop offset="1" stop-color="#2e837b"/></linearGradient></defs>
+            <path d="M40 118 C158 118 190 118 268 118 S420 118 460 118" stroke="#1c343b" stroke-width="22" fill="none" stroke-linecap="round"/>
+            <path d="M40 118 H460" stroke="url(#track)" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="10 9"/>
+            <circle cx="114" cy="118" r="15" fill="#0d262a" stroke="#77f2c1" stroke-width="4"/>
+            <circle cx="380" cy="118" r="15" fill="#0d262a" stroke="#77f2c1" stroke-width="4"/>
+            <rect x="222" y="96" width="68" height="44" rx="11" fill="#d7fff1"/>
+            <rect x="229" y="104" width="54" height="17" rx="5" fill="#376a6b"/>
+            <circle cx="238" cy="137" r="7" fill="#123338"/><circle cx="273" cy="137" r="7" fill="#123338"/>
+            <text x="114" y="76" class="map-title" text-anchor="middle">CURRENT STOP</text>
+            <text x="380" y="76" class="map-title" text-anchor="middle">NEXT STOP</text>
+            <text x="114" y="169" class="map-sub" text-anchor="middle">WAIT</text>
+            <text x="380" y="169" class="map-sub" text-anchor="middle">WALK</text>
+            <path d="M135 190 Q247 153 362 190" stroke="#76d7b3" stroke-width="2" stroke-dasharray="4 8" fill="none"/>
+            <text x="249" y="204" class="map-sub" text-anchor="middle">DECISION UNDER UNCERTAINTY</text>
+          </svg>
+          <div class="route-bottom"><span>STREETCAR / DECISION POLICY</span><span>TORONTO, CANADA</span></div>
+        </div>
+      </section>
+
+      <div class="toolbar">
+        <div class="tabs" role="tablist" aria-label="Dashboard sections">
+          <button role="tab" class="tab active" id="tab-overview" aria-controls="view-overview" aria-selected="true" data-tab="overview">Overview</button>
+          <button role="tab" class="tab" id="tab-decisions" aria-controls="view-decisions" aria-selected="false" data-tab="decisions">Decision intelligence</button>
+          <button role="tab" class="tab" id="tab-quality" aria-controls="view-quality" aria-selected="false" data-tab="quality">Data quality</button>
+        </div>
+        <div class="filter-group"><label for="route-filter">ROUTE</label><select id="route-filter"><option value="all">All routes</option></select></div>
+      </div>
+
+      <div class="provenance" role="note"><span class="provenance-icon">ⓘ</span><span id="provenance-msg">Loading research dataset...</span></div>
+      <div id="error" class="error" role="alert" hidden></div>
+
+      <section id="view-overview" role="tabpanel" aria-labelledby="tab-overview">
+        <div class="kpi-grid" id="kpis" aria-live="polite"></div>
+        <div class="panel-grid">
+          <article class="panel"><div class="panel-head"><div><p class="eyebrow">DISTRIBUTION / 01</p><h2>Recommendations by route</h2></div><span class="panel-unit">WALK vs WAIT</span></div><div id="mix-chart" class="chart"></div><div class="legend"><span><i class="key walk"></i> Walk suggested</span><span><i class="key wait"></i> Wait suggested</span></div></article>
+          <article class="panel"><div class="panel-head"><div><p class="eyebrow">ACTIVITY / 02</p><h2>Decision events over time</h2></div><span class="panel-unit">UTC HOUR</span></div><div id="hour-chart" class="chart"></div><p class="muted-note">Time buckets are in UTC. These records are simulations, not actual commuter requests.</p></article>
+        </div>
+        <div class="panel-grid bottom-grid">
+          <article class="panel"><div class="panel-head"><div><p class="eyebrow">EXPLAINABILITY / 03</p><h2>Decision rationale</h2></div><span class="panel-unit">COUNT</span></div><div id="reason-chart"></div></article>
+          <article class="panel trust-card"><div class="panel-head"><div><p class="eyebrow">DATA RELIABILITY / 04</p><h2>Validation health</h2></div><span class="panel-unit">LAST QA RUN</span></div><div class="trust-main"><div class="gauge" id="qa-gauge"><span id="qa-percent">–</span><small>RULE PASS RATE</small></div><div class="trust-stats" id="trust-stats"></div></div><p class="muted-note">Affected rows reflect rule-level violations; counts can overlap across checks.</p></article>
+        </div>
+      </section>
+
+      <section id="view-decisions" role="tabpanel" aria-labelledby="tab-decisions" hidden>
+        <div class="section-intro"><p class="eyebrow">INTERACTIVE POLICY PROTOTYPE</p><h2>Should I wait or walk?</h2><p>Explore a hypothetical streetcar scenario. There is no live TTC connection here. The numerical inputs are estimates that you control; they do not establish real-world safety.</p></div>
+        <div class="sim-grid">
+          <article class="panel simulator">
+            <div class="slider-control"><label for="eta-current">ETA at current stop <strong id="val-current">7 min</strong></label><input type="range" min="1" max="20" value="7" id="eta-current"></div>
+            <div class="slider-control"><label for="eta-next">Same streetcar ETA at next stop <strong id="val-next">11 min</strong></label><input type="range" min="1" max="25" value="11" id="eta-next"></div>
+            <div class="slider-control"><label for="walk-duration">Walking time to next stop <strong id="val-walk">4 min</strong></label><input type="range" min="1" max="15" value="4" id="walk-duration"></div>
+            <div class="slider-control"><label for="buffer-duration">Safety buffer <strong id="val-buffer">2 min</strong></label><input type="range" min="0" max="6" value="2" id="buffer-duration"></div>
+            <div class="checks">
+              <label><input type="checkbox" id="same-vehicle" checked> Same vehicle positively matched</label>
+              <label><input type="checkbox" id="next-served" checked> Streetcar serves the next stop</label>
+              <label><input type="checkbox" id="accessible-path" checked> Walking route verified accessible</label>
+              <label><input type="checkbox" id="wants-steps" checked> I want to get steps in</label>
+            </div>
+            <p class="muted-note">The verification checkboxes are hypothetical assumptions. They do not connect to real TTC or walking-route services.</p>
+          </article>
+          <article class="decision-result">
+            <p class="eyebrow">ALGORITHM RECOMMENDATION</p>
+            <p class="decision-label" id="decision-action" aria-live="polite">—</p>
+            <h2 id="decision-title">Loading policy...</h2>
+            <p id="decision-reason"></p>
+            <div class="decision-divider"></div>
+            <div class="decision-metric"><span>Predicted next-stop margin</span><strong id="decision-margin">—</strong></div>
+            <div class="decision-metric"><span>Potential steps (estimate)</span><strong id="decision-steps">—</strong></div>
+            <p class="decision-disclaimer">A WALK suggestion is not a guarantee of boarding. The production system must independently validate arrivals, accessibility, walking routes, and prediction error.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="view-quality" role="tabpanel" aria-labelledby="tab-quality" hidden>
+        <div class="section-intro"><p class="eyebrow">DATA ENGINEERING / QUALITY GATE</p><h2>Trust the data before the decision.</h2><p>Sixteen deterministic GTFS static-feed validation rules check key uniqueness, referential integrity, required fields, sequences, and time logic.</p></div>
+        <div class="quality-summary" id="quality-summary"></div>
+        <article class="panel qa-table-panel"><div class="panel-head"><div><p class="eyebrow">RULE EVIDENCE</p><h2>Latest validation run</h2></div><span class="panel-unit" id="qa-source"></span></div>
+        <div class="table-scroll"><table><thead><tr><th>Rule</th><th>Severity</th><th>Status</th><th class="right">Affected rows</th></tr></thead><tbody id="qa-rows"></tbody></table></div></article>
+      </section>
+    </main>
+    <footer><span>COMMUTEIQ · INDEPENDENT GTFS & TRANSIT RESEARCH</span><span>PYTHON · SQL · ANALYTICS · VBA <span class="footer-sep">|</span> <a href="https://github.com/khushalr/ttc-gtfs-qa-validation" target="_blank" rel="noopener noreferrer">VIEW REPOSITORY ↗</a></span></footer>
+  </div>
+</body>
+</html>
