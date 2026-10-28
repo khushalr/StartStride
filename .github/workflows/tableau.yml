@@ -62,6 +62,8 @@ jobs:
               assert board.find("datasources") is not None
               assert board.find("devicelayouts") is not None
               assert len(board.findall("./devicelayouts/devicelayout")) >= 1
+              assert all("auto-generated" not in layout.attrib
+                         for layout in board.findall("./devicelayouts/devicelayout"))
               assert board.find("./devicelayouts/devicelayout/size") is not None
               assert board.find("./devicelayouts/devicelayout/zones/zone") is not None
               assert xml.find("./windows/window[@class='dashboard']/device-preview/device") is not None
