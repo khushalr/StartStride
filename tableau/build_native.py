@@ -211,6 +211,7 @@ def native_xml() -> bytes:
     for title, *_ in VIEWS:
         add(vp, "viewpoint", name=title)
     add(window, "active", id=2)
+    add(add(window, "device-preview"), "device", **{"is-portrait": "true", "type": "Phone"})
 
     E.indent(root, space="  ")
     xml = E.tostring(root, encoding="utf-8", xml_declaration=True)
