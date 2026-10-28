@@ -59,7 +59,8 @@ def build_demo(db: Path) -> tuple[int, int]:
             for i in range(3):
                 for j, (eta_now, eta_next, walk, wants, feed_age, same_vehicle) in enumerate(scenarios):
                     d = recommend(eta_now, eta_next, walk, wants_steps=wants,
-                                  feed_age_seconds=feed_age, same_vehicle=same_vehicle)
+                                  feed_age_seconds=feed_age, same_vehicle=same_vehicle,
+                                  next_stop_served=True, accessible_walk=True)
                     route_id = ("510", "501", "504")[i]
                     moment = anchor + timedelta(minutes=i * 60 + j * 5)
                     con.execute(
