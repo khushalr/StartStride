@@ -165,7 +165,7 @@
       "action": "WAIT",
       "events": 7,
       "potential_steps": 0,
-      "avg_walking_minutes": 4
+      "avg_walking_minutes": 4.0
     },
     {
       "route_id": "504",
@@ -179,7 +179,7 @@
       "action": "WAIT",
       "events": 7,
       "potential_steps": 0,
-      "avg_walking_minutes": 4
+      "avg_walking_minutes": 4.0
     },
     {
       "route_id": "510",
@@ -193,7 +193,7 @@
       "action": "WAIT",
       "events": 7,
       "potential_steps": 0,
-      "avg_walking_minutes": 4
+      "avg_walking_minutes": 4.0
     }
   ],
   "hourly": [
