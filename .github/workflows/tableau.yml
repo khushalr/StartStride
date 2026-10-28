@@ -50,6 +50,19 @@ jobs:
               xml=E.fromstring(z.read("StopStride_TTC_2025.twb"))
               assert len(xml.findall("./worksheets/worksheet"))==4
               assert len(xml.findall("./dashboards/dashboard"))==1
+              # Guard against XML schema failures reported by Tableau Desktop.
+              assert xml.find(".//simple-id") is None
+              assert all("enable-sort-zone-taborder" not in d.attrib
+                         for d in xml.findall("./dashboards/dashboard"))
+              layout=xml.find("./datasources/datasource/layout")
+              assert layout is not None
+              assert layout.get("dim-percentage") is not None
+              assert layout.get("measure-percentage") is not None
+              board=xml.find("./dashboards/dashboard")
+              assert board.find("datasources") is not None
+              assert board.find("devicelayouts") is not None
+              assert all(w.find("viewpoint") is not None
+                         for w in xml.findall("./windows/window[@class='worksheet']"))
               rows=list(csv.DictReader(io.StringIO(
                   z.read("Data/StopStride_TTC_2025/streetcar_events_2025.csv").decode())))
               totals=json.load(open("outputs/tableau_verified_report.json"))["summary"]
