@@ -1,0 +1,85 @@
+name: Build native Tableau workbook from real TTC source
+
+on:
+  push:
+    branches: ["feature/verified-tableau-workbook"]
+    paths:
+      - "tableau/**"
+      - ".github/workflows/tableau.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Retrieve ORIGINAL TTC streetcar incidents; no synthetic fallback
+        run: |
+          python src/real_data/download_streetcar.py \
+            --out outputs/real/source.csv --fallback-uoft
+      - name: Rebuild independently verified real TTC report
+        run: |
+          python analytics/build_real_streetcar.py \
+            --csv outputs/real/source.csv \
+            --source-meta outputs/real/source.source.json \
+            --out outputs/tableau_verified_report.json
+      - name: Build real-data packaged Tableau workbook
+        run: |
+          python tableau/build_native.py \
+            --source outputs/real/source.csv \
+            --source-meta outputs/real/source.source.json \
+            --report outputs/tableau_verified_report.json \
+            --out outputs/tableau/StopStride_TTC_2025.twbx
+      - name: Validate package structure, real provenance, and all rows
+        run: |
+          python - <<'PY'
+          import csv, io, json, zipfile
+          from xml.etree import ElementTree as E
+          path="outputs/tableau/StopStride_TTC_2025.twbx"
+          with zipfile.ZipFile(path) as z:
+              assert z.testzip() is None
+              xml=E.fromstring(z.read("StopStride_TTC_2025.twb"))
+              assert len(xml.findall("./worksheets/worksheet"))==4
+              assert len(xml.findall("./dashboards/dashboard"))==1
+              # Guard against XML schema failures reported by Tableau Desktop.
+              assert xml.find(".//simple-id") is None
+              assert all("enable-sort-zone-taborder" not in d.attrib
+                         for d in xml.findall("./dashboards/dashboard"))
+              layout=xml.find("./datasources/datasource/layout")
+              assert layout is not None
+              assert layout.get("dim-percentage") is not None
+              assert layout.get("measure-percentage") is not None
+              board=xml.find("./dashboards/dashboard")
+              assert board.find("datasources") is not None
+              assert board.find("devicelayouts") is not None
+              assert len(board.findall("./devicelayouts/devicelayout")) >= 1
+              assert all("auto-generated" not in layout.attrib
+                         for layout in board.findall("./devicelayouts/devicelayout"))
+              assert board.find("./devicelayouts/devicelayout/size") is not None
+              assert board.find("./devicelayouts/devicelayout/zones/zone") is not None
+              assert xml.find("./windows/window[@class='dashboard']/device-preview/device") is not None
+              assert all(w.find("viewpoint") is not None
+                         for w in xml.findall("./windows/window[@class='worksheet']"))
+              rows=list(csv.DictReader(io.StringIO(
+                  z.read("Data/StopStride_TTC_2025/streetcar_events_2025.csv").decode())))
+              totals=json.load(open("outputs/tableau_verified_report.json"))["summary"]
+              assert len(rows)==totals["recorded_incidents"]
+              assert sum(int(r["positive_delay_flag"]) for r in rows)==totals["positive_delay_incidents"]
+              assert sum(float(r["delay_minutes"]) for r in rows)==totals["sum_recorded_delay_minutes"]
+              print("Tableau TWBX structure valid, with",len(rows),"REAL TTC incidents")
+          PY
+      - name: Upload Tableau package as a workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: StopStride_TTC_2025_Tableau_REAL
+          path: outputs/tableau/StopStride_TTC_2025.twbx
+          retention-days: 30
