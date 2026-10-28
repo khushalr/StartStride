@@ -23,11 +23,11 @@ def recommend(
     wants_steps: bool = True,
     safety_buffer_minutes: float = 2.0,
     steps_per_minute: int = 110,
-    same_vehicle: bool = True,
+    same_vehicle: bool = False,
     feed_age_seconds: float = 0,
     max_feed_age_seconds: float = 90,
-    next_stop_served: bool = True,
-    accessible_walk: bool = True,
+    next_stop_served: bool = False,
+    accessible_walk: bool = False,
 ) -> Decision:
     """Only recommend walking when the same vehicle is predicted at both stops.
 
