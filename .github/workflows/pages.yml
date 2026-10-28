@@ -1,0 +1,38 @@
+name: Publish CommuteIQ Dashboard
+
+# Manual deployment only: owner must first enable Settings > Pages > GitHub Actions.
+# This prevents accidentally publishing user-supplied local analytics.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "commuteiq-pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure dataset is synthetic
+        run: |
+          python - <<'PY'
+          import json
+          with open("dashboard/data.json", encoding="utf-8") as file:
+              data = json.load(file)
+          assert data["meta"]["origin"] == "DEMO", "Refusing to publish non-DEMO data"
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+      - id: deployment
+        uses: actions/deploy-pages@v4
