@@ -1,6 +1,6 @@
-# StopStride — Real TTC Streetcar Analytics & Walk-or-Wait Research
+# StartStride — Real TTC Streetcar Analytics & Walk-or-Wait Research
 
-**Python · pandas · SQLite / SQL · GTFS validation · Web analytics · BI exports · Excel/VBA · GitHub Actions**
+**Python · pandas · SQLite / SQL · GTFS validation · Web analytics · BI exports · Excel/VBA source · GitHub Actions**
 
 An independent urban mobility and data engineering project using **real TTC streetcar incident records** and an explainable research prototype for a future **walk to the next stop vs wait** commuter feature.
 
@@ -45,7 +45,7 @@ flowchart TD
 
 **Current implementation:** real TTC 2025 data acquisition with provenance validation, historical incident summaries, SQLite-backed analysis, real Tableau/Power BI-ready CSV exports, public dashboard, static GTFS QA (16 rules), automated testing, and an independent wait/walk decision function.
 
-**Not yet built or claimed:** live streetcar ETA integration, real-time trip matching, pedestrian route verification, validated rider catch outcomes, native Tableau `.twbx` or Power BI `.pbix` reports, or desktop-verified VBA macros.
+**Not yet built or claimed:** live streetcar ETA integration, real-time trip matching, pedestrian route verification, validated rider catch outcomes, verified native Tableau `.twbx` or Power BI `.pbix` reports, or desktop-verified VBA macro execution.
 
 ## Run the REAL TTC pipeline
 
@@ -122,7 +122,7 @@ TTC's real-time surface feeds are documented by [Transitland](https://www.transi
 - `analytics/export_real_tables.py` — Tableau/Power BI/Excel-ready real CSV tables.
 - `dashboard/index.html`, `dashboard/real_app.js` — real-data public analytics UI.
 - `src/commuteiq/decision.py` — future commuter recommendation algorithm.
-- `excel/CommuteIQReport.bas` — historical Excel/VBA reporting prototype; desktop verification still pending.
+- `excel/StartStrideRealTTC.bas` — real TTC Excel/VBA audit, source checks and PDF-export automation (source complete; Excel for Mac runtime verification pending). The earlier `excel/CommuteIQReport.bas` remains a legacy synthetic prototype.
 - `tests/` — regression tests using isolated test fixtures; synthetic test inputs are not presented as observed TTC data.
 
 ## Attribution and independence
