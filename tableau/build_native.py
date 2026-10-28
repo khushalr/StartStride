@@ -190,7 +190,7 @@ def native_xml() -> bytes:
             x=800 if index % 2 == 0 else 50400,
             y=1000 if index < 2 else 50600, w=48800, h=48400)
     layouts = add(board, "devicelayouts")
-    phone = add(layouts, "devicelayout", **{"auto-generated": "true", "name": "Phone"})
+    phone = add(layouts, "devicelayout", name="Phone")
     add(phone, "size", maxheight=1000, minheight=1000, **{"sizing-mode": "vscroll"})
     phone_zones = add(phone, "zones")
     phone_root = add(phone_zones, "zone", id=10, x=0, y=0, w=100000,
