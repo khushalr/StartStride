@@ -84,7 +84,7 @@ def download_uoft_2025() -> tuple[bytes, str, str]:
 def _validate_streetcar_csv(payload: bytes) -> None:
     decoded = payload.decode("utf-8-sig", errors="replace")
     headers = next(csv.reader(io.StringIO(decoded)))
-    normalized = {h.strip().lower() for h in headers}
+    normalized = {h.strip().lower().replace('report.date','date').replace('min.delay','min delay') for h in headers}
     if not {"date", "route", "time", "min delay"}.issubset(normalized):
         raise ValueError(f"NOT streetcar format; actual CSV columns are {headers}")
     if sum(1 for _ in io.StringIO(decoded)) < 100:
