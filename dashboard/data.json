@@ -1,0 +1,367 @@
+{
+  "meta": {
+    "product": "CommuteIQ",
+    "origin": "DEMO",
+    "generated_utc": "2026-10-27T08:00:00+00:00",
+    "note": "Synthetic scenario demonstration; no real riders, actual walks, or observed streetcar catches.",
+    "time_axis": "UTC (event timestamps, not local commute hours)"
+  },
+  "quality_rules": [
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-001",
+      "severity": "High",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-002",
+      "severity": "High",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-003",
+      "severity": "High",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-004",
+      "severity": "High",
+      "status": "FAIL",
+      "affected_records": 2
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-005",
+      "severity": "Medium",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-006",
+      "severity": "Medium",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-007",
+      "severity": "Medium",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-008",
+      "severity": "High",
+      "status": "FAIL",
+      "affected_records": 1
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-009",
+      "severity": "High",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-010",
+      "severity": "High",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-011",
+      "severity": "High",
+      "status": "FAIL",
+      "affected_records": 1
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-012",
+      "severity": "Medium",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-013",
+      "severity": "Medium",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-014",
+      "severity": "High",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-015",
+      "severity": "Medium",
+      "status": "PASS",
+      "affected_records": 0
+    },
+    {
+      "run_id": 1,
+      "run_started_at": "2026-10-27T08:00:00Z",
+      "source_name": "SYNTHETIC GTFS QA FIXTURE - NOT TTC OBSERVATIONS",
+      "rule_id": "R-016",
+      "severity": "Low",
+      "status": "PASS",
+      "affected_records": 0
+    }
+  ],
+  "route_actions": [
+    {
+      "route_id": "501",
+      "action": "WALK",
+      "events": 5,
+      "potential_steps": 2310,
+      "avg_walking_minutes": 4.2
+    },
+    {
+      "route_id": "501",
+      "action": "WAIT",
+      "events": 7,
+      "potential_steps": 0,
+      "avg_walking_minutes": 4.0
+    },
+    {
+      "route_id": "504",
+      "action": "WALK",
+      "events": 5,
+      "potential_steps": 2310,
+      "avg_walking_minutes": 4.2
+    },
+    {
+      "route_id": "504",
+      "action": "WAIT",
+      "events": 7,
+      "potential_steps": 0,
+      "avg_walking_minutes": 4.0
+    },
+    {
+      "route_id": "510",
+      "action": "WALK",
+      "events": 5,
+      "potential_steps": 2310,
+      "avg_walking_minutes": 4.2
+    },
+    {
+      "route_id": "510",
+      "action": "WAIT",
+      "events": 7,
+      "potential_steps": 0,
+      "avg_walking_minutes": 4.0
+    }
+  ],
+  "hourly": [
+    {
+      "route_id": "501",
+      "hour_utc": "09",
+      "action": "WALK",
+      "events": 5
+    },
+    {
+      "route_id": "501",
+      "hour_utc": "09",
+      "action": "WAIT",
+      "events": 7
+    },
+    {
+      "route_id": "504",
+      "hour_utc": "10",
+      "action": "WALK",
+      "events": 5
+    },
+    {
+      "route_id": "504",
+      "hour_utc": "10",
+      "action": "WAIT",
+      "events": 7
+    },
+    {
+      "route_id": "510",
+      "hour_utc": "08",
+      "action": "WALK",
+      "events": 5
+    },
+    {
+      "route_id": "510",
+      "hour_utc": "08",
+      "action": "WAIT",
+      "events": 7
+    }
+  ],
+  "decision_reasons": [
+    {
+      "route_id": "501",
+      "action": "WALK",
+      "decision_reason": "Walking is feasible based on matched, fresh predictions; arrival not guaranteed.",
+      "events": 5
+    },
+    {
+      "route_id": "501",
+      "action": "WAIT",
+      "decision_reason": "Streetcar may arrive at the current stop before the walk finishes.",
+      "events": 2
+    },
+    {
+      "route_id": "501",
+      "action": "WAIT",
+      "decision_reason": "User prefers not to walk.",
+      "events": 1
+    },
+    {
+      "route_id": "501",
+      "action": "WAIT",
+      "decision_reason": "Real-time predictions are stale.",
+      "events": 1
+    },
+    {
+      "route_id": "501",
+      "action": "WAIT",
+      "decision_reason": "Predictions cannot be matched to the same vehicle.",
+      "events": 1
+    },
+    {
+      "route_id": "501",
+      "action": "WAIT",
+      "decision_reason": "Insufficient buffer to reach the next stop.",
+      "events": 2
+    },
+    {
+      "route_id": "504",
+      "action": "WALK",
+      "decision_reason": "Walking is feasible based on matched, fresh predictions; arrival not guaranteed.",
+      "events": 5
+    },
+    {
+      "route_id": "504",
+      "action": "WAIT",
+      "decision_reason": "Streetcar may arrive at the current stop before the walk finishes.",
+      "events": 2
+    },
+    {
+      "route_id": "504",
+      "action": "WAIT",
+      "decision_reason": "User prefers not to walk.",
+      "events": 1
+    },
+    {
+      "route_id": "504",
+      "action": "WAIT",
+      "decision_reason": "Real-time predictions are stale.",
+      "events": 1
+    },
+    {
+      "route_id": "504",
+      "action": "WAIT",
+      "decision_reason": "Predictions cannot be matched to the same vehicle.",
+      "events": 1
+    },
+    {
+      "route_id": "504",
+      "action": "WAIT",
+      "decision_reason": "Insufficient buffer to reach the next stop.",
+      "events": 2
+    },
+    {
+      "route_id": "510",
+      "action": "WALK",
+      "decision_reason": "Walking is feasible based on matched, fresh predictions; arrival not guaranteed.",
+      "events": 5
+    },
+    {
+      "route_id": "510",
+      "action": "WAIT",
+      "decision_reason": "Streetcar may arrive at the current stop before the walk finishes.",
+      "events": 2
+    },
+    {
+      "route_id": "510",
+      "action": "WAIT",
+      "decision_reason": "User prefers not to walk.",
+      "events": 1
+    },
+    {
+      "route_id": "510",
+      "action": "WAIT",
+      "decision_reason": "Real-time predictions are stale.",
+      "events": 1
+    },
+    {
+      "route_id": "510",
+      "action": "WAIT",
+      "decision_reason": "Predictions cannot be matched to the same vehicle.",
+      "events": 1
+    },
+    {
+      "route_id": "510",
+      "action": "WAIT",
+      "decision_reason": "Insufficient buffer to reach the next stop.",
+      "events": 2
+    }
+  ],
+  "outcomes": [
+    {
+      "route_id": "501",
+      "total_events": 12,
+      "verified_outcomes": 0,
+      "verified_catches": 0
+    },
+    {
+      "route_id": "504",
+      "total_events": 12,
+      "verified_outcomes": 0,
+      "verified_catches": 0
+    },
+    {
+      "route_id": "510",
+      "total_events": 12,
+      "verified_outcomes": 0,
+      "verified_catches": 0
+    }
+  ]
+}

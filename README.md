@@ -4,7 +4,7 @@
 
 A data engineering and transit analytics portfolio project that extends a 16-rule **GTFS static feed validation pipeline** with an explainable prototype for deciding whether a streetcar rider should **wait at their current stop or walk to the next one**.
 
-> **Status: research prototype.** The original GTFS validator works with locally supplied static feeds. The wait-or-walk engine currently accepts *provided* arrival predictions, not live TTC data. The BI demo uses clearly labelled **synthetic** examples. No rider app, live trip tracking, published Tableau/Power BI workbook or verified real-world catch-rate measurements exist yet. This is **not an official TTC product**.
+> **Status: interactive research prototype, not a live transit service.** The repository includes an interactive web dashboard and wait-or-walk scenario simulator based on **synthetic** examples. The decision engine accepts provided arrival predictions; there is **no live TTC connection**, independently verified catch-rate data, native Tableau/Power BI workbook or live rider app. This project is not affiliated with the TTC.
 
 ## Why this project?
 
@@ -29,11 +29,13 @@ flowchart LR
   H --> D
   D --> I["Tableau / Power BI CSV exports"]
   D --> J["Excel + VBA reporting"]
+  D --> K["Aggregated SQL dashboard JSON"]
+  K --> L["Interactive browser dashboard"]
 ```
 
-**Currently implemented:** static GTFS QA, unit tests, pure Python decision function, SQLite schema, QA report importer, SQL queries, demo generator, BI CSV exporter and VBA module source.
+**Currently implemented:** static GTFS QA, unit tests, pure Python decision function, SQLite schema, QA report importer, SQL queries, reproducible synthetic demo, BI CSV exporter, VBA module source, and a responsive browser dashboard with three views.
 
-**Not implemented:** real-time GTFS-RT adapter, trip/vehicle matching from feeds, traversable pedestrian routing, user-facing app, .twb/.pbix dashboard deliverable, completed .xlsm workbook or production monitoring.
+**Not implemented:** real-time GTFS-RT adapter, trip/vehicle matching from feeds, traversable pedestrian routing, a live commuter service, a validated native .twbx/.pbix dashboard, a completed .xlsm workbook or production monitoring.
 
 ## Try it yourself (no TTC API key, no real data needed)
 
@@ -48,7 +50,11 @@ pip install -r requirements.txt
 pytest -q
 python src/run_analytics_demo.py
 python analytics/export_dashboard.py --db outputs/demo/commuteiq.sqlite --out outputs/bi
+python dashboard/build_data.py --db outputs/demo/commuteiq.sqlite --out dashboard/data.json
+python3 -m http.server 8000 --directory dashboard
 ```
+
+Open **http://localhost:8000** to explore the interactive dashboard (Overview, Decision Intelligence, and Data Quality). The simulator takes hypothetical inputs and cannot make a live transit recommendation. See the [web dashboard guide](dashboard/README.md).
 
 The demo creates **16 synthetic QA outcomes** (3 failing) and **36 synthetic streetcar recommendation events** in a local SQLite DB. None of the synthetic events records an actual journey, completed walk or caught streetcar. The outputs in `outputs/bi/` can be imported to Tableau or Power BI and include `data_origin` labels.
 
@@ -105,7 +111,8 @@ Run code above with `PYTHONPATH=src python` or via a Python environment that inc
 | Python / pandas | Modular 16-rule GTFS validation, decision function, report ETL | Implemented |
 | Software engineering | Tests, CI, typed model, validation, explicit fail-closed policy | Implemented; ongoing review |
 | SQL | Normalized SQLite reporting tables, relational importer, analytical queries | Implemented with demo data |
-| Power BI / Tableau | Reproducible CSV exports + dashboard specification | **Workbook not yet created** |
+| Browser dashboard | Responsive multi-view website, SQL-backed aggregated JSON, interactive scenario simulator | Implemented and tested |
+| Power BI / Tableau | Reproducible CSV exports + dashboard specification | **Native workbook not yet created** |
 | Excel / VBA | KPI summary macro, refresh/export PDF module | **Excel integration not yet verified** |
 | Real-time transit product | Planned GTFS-RT integration and mobile web application | Not implemented |
 
@@ -116,6 +123,7 @@ Run code above with `PYTHONPATH=src python` or via a Python environment that inc
 - `src/run_analytics_demo.py` — reproducible synthetic test dataset.
 - `analytics/schema.sql`, `analytics/load_qa_report.py`, `analytics/dashboard_queries.sql` — SQL analytics layer.
 - `analytics/export_dashboard.py` — Tableau/Power BI CSV exports.
+- [`dashboard/`](dashboard/) — interactive web dashboard, SQL JSON generator, documented deployment and frontend tests.
 - `excel/CommuteIQReport.bas` — importable VBA module.
 - `tests/` and `.github/workflows/ci.yml` — automated validation.
 - [Analytics guide](analytics/README.md) — data dictionary, design decisions and dashboard build plan.
@@ -133,7 +141,7 @@ Run code above with `PYTHONPATH=src python` or via a Python environment that inc
 ## Next steps
 
 1. Connect the QA CSV producer to SQLite in a versioned, automated flow.
-2. Build and publish a **real Tableau or Power BI dashboard workbook** with sanitized data and screenshots.
+2. Build and publish a **native Tableau or Power BI dashboard workbook** with sanitized data and screenshots (the current web dashboard is not a substitute).
 3. Validate a working Excel `.xlsm` workbook and the VBA refresh/export macro.
 4. Implement live streetcar ETA ingestion with same-trip matching and pedestrian travel-time estimates.
 5. Evaluate conservative WALK/WAIT recommendations against observed transit arrivals before deploying a consumer app.

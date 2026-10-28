@@ -1,4 +1,4 @@
-name: Python QA Pipeline CI
+name: Python QA + CommuteIQ Dashboard CI
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,5 +22,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run unit tests
+      - name: Run QA, decision and dashboard integration tests
         run: pytest -q
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Verify dashboard logic
+        run: node --test dashboard/tests/logic.test.cjs
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check dashboard/app.js
+          node --check dashboard/logic.js
+
+      - name: Verify reproducible dashboard data
+        run: |
+          python src/run_analytics_demo.py --db /tmp/commuteiq_ci_demo.sqlite
+          python dashboard/build_data.py --db /tmp/commuteiq_ci_demo.sqlite --out /tmp/commuteiq_ci_data.json
