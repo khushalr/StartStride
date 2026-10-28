@@ -28,8 +28,7 @@ def test_synthetic_demo_and_dashboard_export(tmp_path):
         assert conn.execute("SELECT COUNT(*) FROM recommendation_event WHERE caught_vehicle IS NOT NULL").fetchone()[0] == 0
         # SQL dashboard queries are executable on a reproducible example database.
         sql = (ROOT / "analytics" / "dashboard_queries.sql").read_text()
-        sql_statements_only = "
-".join(line for line in sql.splitlines()
+        sql_statements_only = "\n".join(line for line in sql.splitlines()
                                          if not line.lstrip().startswith("--"))
         queries = [q.strip() for q in sql_statements_only.split(";") if q.strip()]
         results = [conn.execute(query).fetchall() for query in queries]
