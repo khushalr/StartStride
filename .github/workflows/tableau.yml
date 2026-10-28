@@ -61,6 +61,9 @@ jobs:
               board=xml.find("./dashboards/dashboard")
               assert board.find("datasources") is not None
               assert board.find("devicelayouts") is not None
+              assert len(board.findall("./devicelayouts/devicelayout")) >= 1
+              assert board.find("./devicelayouts/devicelayout/size") is not None
+              assert board.find("./devicelayouts/devicelayout/zones/zone") is not None
               assert xml.find("./windows/window[@class='dashboard']/device-preview/device") is not None
               assert all(w.find("viewpoint") is not None
                          for w in xml.findall("./windows/window[@class='worksheet']"))
