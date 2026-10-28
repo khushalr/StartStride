@@ -34,6 +34,12 @@ def test_dashboard_aggregations_and_provenance(tmp_path):
     assert "current_stop_id" not in out.read_text()
     assert "next_stop_id" not in out.read_text()
     assert "observed_at" not in out.read_text()
+    # The checked-in demo must match the SQL-generated report, aside from metadata timestamps.
+    published = json.loads((ROOT / "dashboard" / "data.json").read_text())
+    for key in ("route_actions", "hourly", "decision_reasons", "outcomes"):
+        normalized = lambda rows: sorted(json.dumps(row, sort_keys=True) for row in rows)
+        assert normalized(payload[key]) == normalized(published[key]), key
+    assert normalized(payload["quality_rules"]) == normalized(published["quality_rules"])
 
 
 def test_dashboard_rejects_mixed_origins(tmp_path):
