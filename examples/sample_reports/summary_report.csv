@@ -1,6 +1,17 @@
 rule_id,category,rule_name,dataset,severity,status,affected_records,details
-R-001,primary_key,Duplicate route_id in routes,routes.txt,High,Pass,0,route_id must be unique in routes.txt
-R-004,primary_key,"Duplicate (trip_id, stop_sequence) in stop_times",stop_times.txt,High,Fail,2,trip_id + stop_sequence should be unique per stop_times row
-R-008,referential_integrity,Trips route_id exists in routes,trips.txt,High,Fail,1,Every trips.route_id should exist in routes.route_id
-R-011,sequencing,Stop sequence strictly increases within trip,stop_times.txt,High,Fail,1,stop_sequence should increase for each subsequent stop in a trip
-R-013,domain_range,Latitude/longitude ranges are valid,stops.txt,Medium,Pass,0,stop_lat must be [-90, 90] and stop_lon must be [-180, 180]
+"R-001","primary_key","Duplicate route_id in routes","routes.txt","High","Pass","0","route_id must be unique in routes.txt"
+"R-002","primary_key","Duplicate trip_id in trips","trips.txt","High","Pass","0","trip_id must be unique in trips.txt"
+"R-003","primary_key","Duplicate stop_id in stops","stops.txt","High","Pass","0","stop_id must be unique in stops.txt"
+"R-004","primary_key","Duplicate (trip_id, stop_sequence) in stop_times","stop_times.txt","High","Fail","2","trip_id + stop_sequence should be unique per stop_times row"
+"R-005","required_fields","Missing required values in routes","routes.txt","Medium","Pass","0","route_id, route_short_name, and route_type should be populated"
+"R-006","required_fields","Missing required values in trips","trips.txt","Medium","Pass","0","route_id, service_id, and trip_id should be populated"
+"R-007","required_fields","Missing required values in stop_times","stop_times.txt","Medium","Pass","0","trip_id, arrival_time, departure_time, stop_id, and stop_sequence should be populated"
+"R-008","referential_integrity","Trips route_id exists in routes","trips.txt","High","Fail","1","Every trips.route_id should exist in routes.route_id"
+"R-009","referential_integrity","Stop times trip_id exists in trips","stop_times.txt","High","Pass","0","Every stop_times.trip_id should exist in trips.trip_id"
+"R-010","referential_integrity","Stop times stop_id exists in stops","stop_times.txt","High","Pass","0","Every stop_times.stop_id should exist in stops.stop_id"
+"R-011","sequencing","Stop sequence strictly increases within trip","stop_times.txt","High","Fail","1","stop_sequence should increase for each subsequent stop in a trip"
+"R-012","time_logic","Departure time not earlier than arrival time","stop_times.txt","Medium","Pass","0","departure_time should be >= arrival_time"
+"R-013","domain_range","Latitude/longitude ranges are valid","stops.txt","Medium","Pass","0","stop_lat must be [-90, 90] and stop_lon must be [-180, 180]"
+"R-014","consistency","Route-trip consistency","trips.txt","High","Pass","0","trip route references should match valid routes"
+"R-015","calendar","Trips service_id exists in calendar data","trips.txt","Medium","Pass","0","trip service_id should exist in calendar.txt or calendar_dates.txt when present"
+"R-016","shape_consistency","Trips shape_id exists in shapes","trips.txt","Low","Pass","0","when shape_id is populated, it should exist in shapes.txt"
