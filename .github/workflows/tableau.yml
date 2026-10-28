@@ -61,6 +61,7 @@ jobs:
               board=xml.find("./dashboards/dashboard")
               assert board.find("datasources") is not None
               assert board.find("devicelayouts") is not None
+              assert xml.find("./windows/window[@class='dashboard']/device-preview/device") is not None
               assert all(w.find("viewpoint") is not None
                          for w in xml.findall("./windows/window[@class='worksheet']"))
               rows=list(csv.DictReader(io.StringIO(
