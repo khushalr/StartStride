@@ -140,6 +140,7 @@ def native_xml() -> bytes:
         add(ds, "column", caption=field.replace("_", " ").title(),
             datatype=dtype, name=f"[{field}]", role=role, type=fieldtype)
     add(ds, "layout", **{
+        "dim-percentage": "0.5", "measure-percentage": "0.4",
         "dim-ordering": "alphabetic",
         "measure-ordering": "alphabetic", "show-structure": "true"
     })
@@ -175,20 +176,20 @@ def native_xml() -> bytes:
         measure_ref = f"[{DS}].[sum:{measure}:qk]"
         add(table, "rows").text = dimension_ref if dimension == "route" else measure_ref
         add(table, "cols").text = measure_ref if dimension == "route" else dimension_ref
-        add(sheet, "simple-id", uuid=guid(title))
 
     board_name = "StopStride | 2025 TTC streetcar incident intelligence"
-    board = add(add(root, "dashboards"), "dashboard",
-                name=board_name, **{"enable-sort-zone-taborder": "true"})
+    board = add(add(root, "dashboards"), "dashboard", name=board_name)
     add(board, "style")
     add(board, "size", maxheight=900, maxwidth=1400, minheight=900, minwidth=1400)
+    add(add(board, "datasources"), "datasource", name=DS,
+        caption="REAL TTC streetcar incidents | 2025")
     parent = add(add(board, "zones"), "zone", id=1, x=0, y=0, w=100000, h=100000,
                  **{"type-v2": "layout-basic"})
     for index, (title, *_) in enumerate(VIEWS):
         add(parent, "zone", id=index + 2, name=title,
             x=800 if index % 2 == 0 else 50400,
             y=1000 if index < 2 else 50600, w=48800, h=48400)
-    add(board, "simple-id", uuid=guid(board_name))
+    add(board, "devicelayouts")
 
     windows = add(root, "windows", **{"source-height": "30"})
     for title, *_ in VIEWS:
@@ -202,7 +203,7 @@ def native_xml() -> bytes:
         for kind in ("columns", "rows", "title"):
             add(add(top, "strip", size=31 if kind == "title" else 2147483647),
                 "card", type=kind)
-        add(window, "simple-id", uuid=guid("window:" + title))
+        add(add(window, "viewpoint"), "zoom", type="entire-view")
     window = add(windows, "window", **{
         "class": "dashboard", "name": board_name, "maximized": "true"
     })
@@ -210,7 +211,7 @@ def native_xml() -> bytes:
     for title, *_ in VIEWS:
         add(vp, "viewpoint", name=title)
     add(window, "active", id=2)
-    add(window, "simple-id", uuid=guid("dashboard-window"))
+
     E.indent(root, space="  ")
     xml = E.tostring(root, encoding="utf-8", xml_declaration=True)
     parsed = E.fromstring(xml)
