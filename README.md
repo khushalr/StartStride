@@ -87,7 +87,7 @@ The real streetcar pipeline can materialize `outputs/real/streetcar.sqlite`. Run
 - Route × hour recorded-incident distributions.
 - Data coverage and distinct route labels.
 
-The `dashboard/bi/streetcar_*.csv` tables are genuinely derived from recorded TTC incidents and have their own `SOURCE.json` provenance metadata. These are ready to import into Tableau or Power BI; **a native Tableau/Power BI workbook is not yet included**.
+The `dashboard/bi/streetcar_*.csv` tables are derived from real TTC incident records and have a `SOURCE.json` provenance manifest. The [native Tableau workbook generator](tableau/) builds a packaged `.twbx` from the **original** verified incident records, with four prepared charts and a dashboard; [GitHub Actions](.github/workflows/tableau.yml) checks its XML and source totals. **The native workbook has not yet been opened in Tableau Desktop/Public**, so rendering and publication still require manual verification. A native Power BI `.pbix` is not included.
 
 ## GTFS data quality: existing foundation
 
@@ -120,6 +120,7 @@ TTC's real-time surface feeds are documented by [Transitland](https://www.transi
 - `analytics/build_real_streetcar.py` — real TTC incident ETL and SQLite materialization.
 - `analytics/real_streetcar_queries.sql` — substantive SQL queries.
 - `analytics/export_real_tables.py` — Tableau/Power BI/Excel-ready real CSV tables.
+- [`tableau/`](tableau/) — native Tableau workbook generator, build workflow and opening/validation instructions.
 - `dashboard/index.html`, `dashboard/real_app.js` — real-data public analytics UI.
 - `src/commuteiq/decision.py` — future commuter recommendation algorithm.
 - `excel/CommuteIQReport.bas` — historical Excel/VBA reporting prototype; desktop verification still pending.
